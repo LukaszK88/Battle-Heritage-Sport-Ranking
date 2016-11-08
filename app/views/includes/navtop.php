@@ -4,7 +4,9 @@
  * User: Lukasz
  * Date: 07/11/2016
  * Time: 08:38
- */?>
+ */
+use Battleheritage\core\Url ;
+?>
 <div id="wrapper">
 
     <!-- Navigation -->
@@ -27,7 +29,7 @@
                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <li><a href="<?php echo Url::path()?>/home/admin"><i class="fa fa-user fa-fw"></i> Admin</a>
                     </li>
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>

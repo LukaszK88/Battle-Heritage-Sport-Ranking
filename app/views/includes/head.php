@@ -27,6 +27,8 @@ use Battleheritage\core\Url ;
     <link href="<?php echo Url::main()?>/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
+    <link href="<?php echo Url::path()?>/css/bootstrap-slider.css" rel="stylesheet">
+    <link href="<?php echo Url::path()?>/css/bootstrap-slider.min.css" rel="stylesheet">
     <link href="<?php echo Url::path()?>/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom Fonts -->

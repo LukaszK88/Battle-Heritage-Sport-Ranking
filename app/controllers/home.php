@@ -21,7 +21,7 @@ use Battleheritage\Validation\Contracts\ValidatorInterface;
 use Battleheritage\Validation\Validator;
 use Battleheritage\Validation\InputForms\AddUser;
 
-
+use Illuminate\Support\Facades\DB;
 use Battleheritage\models\Bohurts ;
 use Battleheritage\models\Users ;
 
@@ -29,19 +29,36 @@ use Battleheritage\models\Users ;
 class Home extends Controller{
 
     protected   $user,
+                $bohurt,
+                $points,
                 $validator;
                
 
     public function __construct(){
         $this->user = new Users();
+        $this->bohurt = new Bohurts();
         $this->validator = new Validator();
+
+        $users = Users::all();
+
+        //echo $users;
+
+        foreach ($users as $user){
+
+                    $user->total_points = ($user->bohurts->points + $user->profights->points + $user->swords->points);
+
+                    $user->save();
+
+        }
+
     }
 
     public function index($name = ''){
 
-        $users = Users::all();
+        $users = Users::all()->sortBy('total_points','0',true);
+
         
-        
+
         $this->view('home/index',['users'=>$users]);
 
     }
@@ -280,24 +297,39 @@ class Home extends Controller{
         $this->view('main/logout');
     }
 
-    public function profile($name = ''){
-        
-        
+    public function update($userId = '',$category = ''){
+
+       if(!empty(Input::get('category'))) {
+           Redirect::to(Url::path().'/'.Input::get('category').'/addRecord/'.$userId);
+       }
        
-        $this->view('main/profile');
+        $this->view('home/update',['userId'=>$userId,'category'=>$category]);
     }
 
     public function admin($update = ''){
 
-        $validation = $this->validator->validate($_POST,AddUser::rules());
+        if(Input::exists()) {
+            $validation = $this->validator->validate($_POST, AddUser::rules());
 
-        if($validation->fails()){
-            
-           // Redirect::to(Url::path().'/home/admin');
+            if ($validation->fails()) {
+
+                 Redirect::to(Url::path().'/home/admin');
+            }
+
+            $user = $this->user->firstOrCreate(array(
+                'name' => Input::get('name'),
+                'age' => Input::get('age'),
+                'rank' => Input::get('rank'),
+                'weight' => Input::get('weight'),
+                'region' => Input::get('region')
+                //'total_points' => $this->user->bohurts()
+            ));
+
+            $user->save();
+
+            Redirect::to(Url::path().'/home/index');
+
         }
-
-        echo 'user create';
-
         $this->view('home/admin');
     }
     

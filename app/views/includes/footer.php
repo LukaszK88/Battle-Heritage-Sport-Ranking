@@ -14,6 +14,8 @@ use Battleheritage\core\Url ;
 <script src="<?php echo Url::main()?>/vendor/jquery/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
+<script src="<?php echo Url::path()?>/js/bootstrap-slider.min.js"></script>
+<script src="<?php echo Url::path()?>/js/bootstrap-slider.js"></script>
 <script src="<?php echo Url::main()?>/vendor/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
@@ -21,6 +23,12 @@ use Battleheritage\core\Url ;
 
 <!-- Custom Theme JavaScript -->
 <script src="<?php echo Url::path()?>/js/sb-admin-2.js"></script>
+
+<script>$('.ex1').slider({
+        formatter: function(value) {
+            return 'Current value: ' + value;
+        }
+    });</script>
 
 <script>
     $(document).ready(function(){

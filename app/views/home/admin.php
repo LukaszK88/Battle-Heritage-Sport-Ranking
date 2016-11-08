@@ -5,9 +5,9 @@
  * Date: 07/11/2016
  * Time: 21:41
  */
-use Battleheritage\core\Token ;
 use Battleheritage\core\Message;
 use Battleheritage\Validation\Validator;
+use Battleheritage\core\Input;
 ?>
 
 <!-- Page Content -->
@@ -22,7 +22,7 @@ use Battleheritage\Validation\Validator;
                     <form action="" method="post">
                         <div class="form-group <?php if(Validator::validationErrorExists('name')):  ?> has-error <?php endif; ?> ">
                             <label for="name">Name</label>
-                            <input name="name" class="form-control">
+                            <input name="name" class="form-control" value="<?php echo Input::get('name')?>">
 
                                 <span class="help-block">
                                     <?php Validator::validationError('name') ?>
@@ -31,7 +31,7 @@ use Battleheritage\Validation\Validator;
                         </div>
                         <div class="form-group <?php if(Validator::validationErrorExists('rank')):  ?> has-error <?php endif; ?>">
                             <label for="rank">Rank</label>
-                            <input name="rank" class="form-control">
+                            <input name="rank" class="form-control" value="<?php echo Input::get('rank')?>">
 
                             <span class="help-block">
                                     <?php Validator::validationError('rank') ?>
@@ -40,7 +40,7 @@ use Battleheritage\Validation\Validator;
                         </div>
                         <div class="form-group <?php if(Validator::validationErrorExists('age')):  ?> has-error <?php endif; ?>">
                             <label for="age">Age</label>
-                            <input name="age" class="form-control">
+                            <input name="age" class="form-control" value="<?php echo Input::get('age')?>">
 
                             <span class="help-block">
                                     <?php Validator::validationError('age') ?>
@@ -48,7 +48,7 @@ use Battleheritage\Validation\Validator;
                         </div>
                         <div class="form-group <?php if(Validator::validationErrorExists('weight')):  ?> has-error <?php endif; ?>">
                             <label for="weight">Weight</label>
-                            <input name="weight" class="form-control">
+                            <input name="weight" class="form-control" value="<?php echo Input::get('weight')?>">
 
                             <span class="help-block">
                                     <?php Validator::validationError('weight') ?>
@@ -57,7 +57,7 @@ use Battleheritage\Validation\Validator;
                         </div>
                         <div class="form-group <?php if(Validator::validationErrorExists('region')):  ?> has-error <?php endif; ?>">
                             <label for="region">Region</label>
-                            <input name="region" class="form-control">
+                            <input name="region" class="form-control" value="<?php echo Input::get('region')?>">
 
                             <span class="help-block">
                                     <?php Validator::validationError('region') ?>

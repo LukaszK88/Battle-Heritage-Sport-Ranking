@@ -18,6 +18,7 @@ $capsule->addConnection([
     'driver'    => 'mysql',
     'host'      => '127.0.0.1',
     'Validation'  => 'battleheritage',
+    'database'  =>'battleheritage',
     'username'  => 'root',
     'password'  => '',
     'charset'   => 'utf8',

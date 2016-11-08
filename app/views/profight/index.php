@@ -4,7 +4,9 @@
  * User: Lukasz
  * Date: 04/11/2016
  * Time: 16:56
- */?>
+ */
+use Battleheritage\core\Url ;
+?>
 
     <!-- Page Content -->
     <div id="page-wrapper">
@@ -24,18 +26,23 @@
                                         <th width="8%">Loss</th>
                                         <th width="8%">KO</th>
                                         <th width="5%">Points</th>
+                                        <th width="5%">Update</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <?php  $n=1  ?>
+                                    <?php foreach ($data['profights'] as $profight) :?>
                                     <tr>
-                                        <td>1</td>
-                                        <td>Pawel Kurzak</td>
-                                        <td>South East</td>
-                                        <td>5</td>
-                                        <td>1</td>
-                                        <td>0</td>
-                                        <td>50</td>
+                                        <td><?php echo $n++ ?></td>
+                                        <td><?php echo $profight->users->name ?></td>
+                                        <td><?php echo $profight->users->region ?></td>
+                                        <td><?php echo $profight->win ?></td>
+                                        <td><?php echo $profight->loss ?></td>
+                                        <td><?php echo $profight->ko ?></td>
+                                        <td><?php echo $profight->points ?></td>
+                                        <td><a href="<?php echo Url::path()?>/profight/addRecord/<?php echo $profight->user_id ?>" class="btn btn-success btn-sm">update</a></td>
                                     </tr>
+                                    <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>

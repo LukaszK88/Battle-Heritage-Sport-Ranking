@@ -37,7 +37,7 @@ class Validator implements ValidatorInterface{
     
     public static function validationError($error){
 
-        if(isset($_SESSION['errors'][$error])){
+        if(isset($_SESSION['errors'][$error]) and (!empty($_SESSION['errors'][$error]))){
             echo $_SESSION['errors'][$error][0];
             unset( $_SESSION['errors'][$error][0]);
         }

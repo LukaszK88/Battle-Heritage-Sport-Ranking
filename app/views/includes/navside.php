@@ -37,7 +37,7 @@ use Battleheritage\core\Url ;
                         <a href="#">Competitions<span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li>
-                                <a href="<?php echo Url::path()?>/imcf/sword">Sword and Shield</a>
+                                <a href="<?php echo Url::path()?>/imcf/swords">Sword and Shield</a>
                             </li>
                             <li>
                                 <a href="<?php echo Url::path()?>/imcf/longsword">Longsword</a>

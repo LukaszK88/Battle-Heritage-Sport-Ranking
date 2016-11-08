@@ -5,16 +5,33 @@
  * Date: 07/11/2016
  * Time: 09:29
  */
+
 use Battleheritage\core\Controller ;
+use Battleheritage\models\Users ;
+use Battleheritage\models\Swords;
+use Battleheritage\models\Longsword;
+use Battleheritage\models\Polearm;
+
+use Battleheritage\core\Redirect ;
+use Battleheritage\core\Url ;
+use Battleheritage\core\Input ;
+
+use Battleheritage\Validation\Contracts\ValidatorInterface;
+use Battleheritage\Validation\Validator;
+use Battleheritage\Validation\InputForms\AddImcfRecord;
 
 class Imcf extends Controller{
 
-    protected $user;
+    protected   $user,
+                $swords,
+                $validator;
 
 
     public function __construct()
     {
-        $this->user = $this->model('User');
+        $this->user = new Users();
+        $this->validator = new Validator();
+        $this->swords = new Swords();
 
     }
 
@@ -27,11 +44,13 @@ class Imcf extends Controller{
     }
 
 
-    public function sword($name = '')
-    {
+    public function swords($name = ''){
 
+        $swords = Swords::all()->sortBy('points','0',true);
 
-        $this->view('imcf/sword');
+        echo $swords;
+
+        $this->view('imcf/swords',['swords'=>$swords]);
 
     }
 
@@ -48,6 +67,65 @@ class Imcf extends Controller{
 
 
         $this->view('imcf/polearm');
+
+    }
+
+    public function addRecord($userId = '',$discipline = ''){
+
+
+        $user = $this->$discipline->where('user_id',$userId)->first();
+
+        echo $user;
+
+        if(!$user) {
+            if (Input::exists()) {
+                $validation = $this->validator->validate($_POST, AddImcfRecord::rules());
+
+                if ($validation->fails()) {
+
+                    // Redirect::to(Url::path().'/home/admin');
+                }
+
+                $disciplin = $this->$discipline->firstOrCreate(array(
+                    'user_id' => $userId,
+                    'win' => Input::get('win'),
+                    'loss' => Input::get('loss'),
+                    'points' => (Input::get('win')*2)
+                ));
+
+                $disciplin->save();
+
+
+                Redirect::to(Url::path() . '/imcf/'.$discipline);
+            }
+
+        }elseif($user) {
+            if (Input::exists()) {
+                $validation = $this->validator->validate($_POST, AddImcfRecord::rules());
+
+                if ($validation->fails()) {
+
+                    // Redirect::to(Url::path().'/home/admin');
+                }
+
+                $disciplin = $this->$discipline->where('user_id',$user->user_id)->first();
+
+
+                $disciplin->win    = ($disciplin->win + Input::get('win'));
+                $disciplin->loss   = ($disciplin->loss + Input::get('loss'));
+                $disciplin->points = ($disciplin->points + ((Input::get('win')*2)));
+
+                $disciplin->save();
+
+
+                Redirect::to(Url::path() . '/imcf/'.$discipline);
+
+            }
+        }
+
+
+
+        $this->view('imcf/addRecord');
 
     }
 }
