@@ -20,8 +20,8 @@ trait DetectsDeadlocks
         return Str::contains($message, [
             'Deadlock found when trying to get lock',
             'deadlock detected',
-            'The database file is locked',
-            'A table in the database is locked',
+            'The Validation file is locked',
+            'A table in the Validation is locked',
             'has been chosen as the deadlock victim',
         ]);
     }

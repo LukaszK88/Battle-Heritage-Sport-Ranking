@@ -5,6 +5,8 @@
  * Date: 07/11/2016
  * Time: 09:29
  */
+use Battleheritage\core\Controller ;
+
 class Imcf extends Controller{
 
     protected $user;

@@ -5,7 +5,7 @@ namespace Illuminate\Database\Migrations;
 abstract class Migration
 {
     /**
-     * The name of the database connection to use.
+     * The name of the Validation connection to use.
      *
      * @var string
      */

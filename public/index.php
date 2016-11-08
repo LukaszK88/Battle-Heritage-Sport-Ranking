@@ -1,4 +1,8 @@
 <?php
+
+use Battleheritage\core\config ;
+use Battleheritage\core\Errors ;
+
 require_once '../app/init.php';
 
 function phpErrors(){
@@ -13,8 +17,6 @@ function appErrors(){
     }
 }
 
-
-$app = new App();
 
 
 appErrors();

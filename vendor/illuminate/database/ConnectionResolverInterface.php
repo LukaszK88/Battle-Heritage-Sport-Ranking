@@ -5,7 +5,7 @@ namespace Illuminate\Database;
 interface ConnectionResolverInterface
 {
     /**
-     * Get a database connection instance.
+     * Get a Validation connection instance.
      *
      * @param  string  $name
      * @return \Illuminate\Database\ConnectionInterface

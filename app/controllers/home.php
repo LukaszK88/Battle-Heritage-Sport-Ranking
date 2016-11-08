@@ -6,20 +6,43 @@
  * Time: 11:39
  */
 
+use Battleheritage\core\Controller ;
+use Battleheritage\core\Input ;
+use Battleheritage\core\Token ;
+
+use Battleheritage\core\Hash ;
+use Battleheritage\core\Email ;
+use Battleheritage\core\Message ;
+use Battleheritage\core\Redirect ;
+use Battleheritage\core\Url ;
+use Battleheritage\core\Session ;
+
+use Battleheritage\Validation\Contracts\ValidatorInterface;
+use Battleheritage\Validation\Validator;
+use Battleheritage\Validation\InputForms\AddUser;
+
+
+use Battleheritage\models\Bohurts ;
+use Battleheritage\models\Users ;
+
+
 class Home extends Controller{
 
-    protected   $user;
+    protected   $user,
+                $validator;
                
 
     public function __construct(){
-        $this->user = $this->model('User');
-       
+        $this->user = new Users();
+        $this->validator = new Validator();
     }
 
     public function index($name = ''){
 
+        $users = Users::all();
         
-        $this->view('home/index');
+        
+        $this->view('home/index',['users'=>$users]);
 
     }
 
@@ -237,7 +260,7 @@ class Home extends Controller{
                             Redirect::to(Url::path().'/main/index');
                         }
                     }else{
-                        Message::setMessage('This email address doesn\'t exist in our database, register please','error');
+                        Message::setMessage('This email address doesn\'t exist in our Validation, register please','error');
                     }
                 }
 
@@ -264,10 +287,18 @@ class Home extends Controller{
         $this->view('main/profile');
     }
 
-    public function update($update = ''){
+    public function admin($update = ''){
 
+        $validation = $this->validator->validate($_POST,AddUser::rules());
 
-        $this->view('main/update');
+        if($validation->fails()){
+            
+           // Redirect::to(Url::path().'/home/admin');
+        }
+
+        echo 'user create';
+
+        $this->view('home/admin');
     }
     
 }

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8fdbc5f48765ca2d6003f487d123a69f",
-    "content-hash": "624e4aceef74b243633de1d7e137ae16",
+    "hash": "b0b227df9d50c1722f2ca4bf9963d6da",
+    "content-hash": "ea803f893bbe8b69a1be78f7873511ae",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -277,6 +277,55 @@
             "time": "2016-10-02 01:14:47"
         },
         {
+            "name": "kennedytedesco/validation",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KennedyTedesco/Validation.git",
+                "reference": "398cac478c6b75cff14c070548fedf495d04a526"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KennedyTedesco/Validation/zipball/398cac478c6b75cff14c070548fedf495d04a526",
+                "reference": "398cac478c6b75cff14c070548fedf495d04a526",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.2.*|5.3.*",
+                "php": ">=5.5.9",
+                "respect/validation": "1.1.*"
+            },
+            "require-dev": {
+                "laravel/framework": "5.3.*",
+                "orchestra/testbench": "3.3.*",
+                "phpunit/phpunit": "^4.8|^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "KennedyTedesco\\Validation\\": "src/Validation"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kennedy Tedesco",
+                    "email": "kennedyt.tw@gmail.com"
+                }
+            ],
+            "description": "The power of 'Respect Validation' on Laravel.",
+            "keywords": [
+                "laravel",
+                "respect",
+                "rules",
+                "validation"
+            ],
+            "time": "2016-09-08 16:22:36"
+        },
+        {
             "name": "nesbot/carbon",
             "version": "1.21.0",
             "source": {
@@ -325,16 +374,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v2.0.3",
+            "version": "v2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "c0125896dbb151380ab47e96c621741e79623beb"
+                "reference": "a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/c0125896dbb151380ab47e96c621741e79623beb",
-                "reference": "c0125896dbb151380ab47e96c621741e79623beb",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e",
+                "reference": "a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e",
                 "shasum": ""
             },
             "require": {
@@ -369,7 +418,72 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-10-17 15:23:22"
+            "time": "2016-11-07 23:38:38"
+        },
+        {
+            "name": "respect/validation",
+            "version": "1.1.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Respect/Validation.git",
+                "reference": "710e807a68aa79b992d85defb60b36a59745ae91"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Respect/Validation/zipball/710e807a68aa79b992d85defb60b36a59745ae91",
+                "reference": "710e807a68aa79b992d85defb60b36a59745ae91",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "symfony/polyfill-mbstring": "^1.2"
+            },
+            "require-dev": {
+                "egulias/email-validator": "~1.2",
+                "malkusch/bav": "~1.0",
+                "mikey179/vfsstream": "^1.5",
+                "phpunit/phpunit": "~4.0",
+                "symfony/validator": "~2.6.9",
+                "zendframework/zend-validator": "~2.3"
+            },
+            "suggest": {
+                "egulias/email-validator": "Strict (RFC compliant) email validation",
+                "ext-bcmath": "Arbitrary Precision Mathematics",
+                "ext-mbstring": "Multibyte String Functions",
+                "fabpot/php-cs-fixer": "Fix PSR2 and other coding style issues",
+                "malkusch/bav": "German bank account validation",
+                "symfony/validator": "Use Symfony validator through Respect\\Validation",
+                "zendframework/zend-validator": "Use Zend Framework validator through Respect\\Validation"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Respect\\Validation\\": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD Style"
+            ],
+            "authors": [
+                {
+                    "name": "Respect/Validation Contributors",
+                    "homepage": "https://github.com/Respect/Validation/graphs/contributors"
+                }
+            ],
+            "description": "The most awesome validation engine ever created for PHP",
+            "homepage": "http://respect.github.io/Validation/",
+            "keywords": [
+                "respect",
+                "validation",
+                "validator"
+            ],
+            "time": "2016-10-29 13:29:17"
         },
         {
             "name": "symfony/polyfill-mbstring",

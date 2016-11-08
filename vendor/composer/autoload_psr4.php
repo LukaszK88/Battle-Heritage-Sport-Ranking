@@ -8,10 +8,13 @@ $baseDir = dirname($vendorDir);
 return array(
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Component\\Translation\\' => array($vendorDir . '/symfony/translation'),
+    'Respect\\Validation\\' => array($vendorDir . '/respect/validation/library'),
+    'KennedyTedesco\\Validation\\' => array($vendorDir . '/kennedytedesco/validation/src/Validation'),
     'Illuminate\\Support\\' => array($vendorDir . '/illuminate/support'),
-    'Illuminate\\Database\\' => array($vendorDir . '/illuminate/database'),
+    'Illuminate\\Database\\' => array($vendorDir . '/illuminate/Validation'),
     'Illuminate\\Contracts\\' => array($vendorDir . '/illuminate/contracts'),
     'Illuminate\\Container\\' => array($vendorDir . '/illuminate/container'),
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
+    'Battleheritage\\' => array($baseDir . '/app'),
 );

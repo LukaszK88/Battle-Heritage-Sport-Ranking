@@ -50,7 +50,7 @@ class ConnectionFactory
     }
 
     /**
-     * Create a single database connection instance.
+     * Create a single Validation connection instance.
      *
      * @param  array  $config
      * @return \Illuminate\Database\Connection
@@ -60,12 +60,12 @@ class ConnectionFactory
         $pdo = $this->createPdoResolver($config);
 
         return $this->createConnection(
-            $config['driver'], $pdo, $config['database'], $config['prefix'], $config
+            $config['driver'], $pdo, $config['Validation'], $config['prefix'], $config
         );
     }
 
     /**
-     * Create a single database connection instance.
+     * Create a single Validation connection instance.
      *
      * @param  array  $config
      * @return \Illuminate\Database\Connection
@@ -162,7 +162,7 @@ class ConnectionFactory
     }
 
     /**
-     * Parse and prepare the database configuration.
+     * Parse and prepare the Validation configuration.
      *
      * @param  array   $config
      * @param  string  $name

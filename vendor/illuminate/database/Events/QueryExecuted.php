@@ -33,7 +33,7 @@ class QueryExecuted
     public $connection;
 
     /**
-     * The database connection name.
+     * The Validation connection name.
      *
      * @var string
      */

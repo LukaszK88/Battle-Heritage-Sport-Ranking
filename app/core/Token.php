@@ -1,4 +1,9 @@
 <?php
+namespace Battleheritage\core;
+
+use Battleheritage\core\Session ;
+use Battleheritage\core\config ;
+
 class Token{
     public static function generate(){
         return Session::put(config::get('session/token_name'),md5(uniqid()));

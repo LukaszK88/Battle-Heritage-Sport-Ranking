@@ -22,7 +22,7 @@ class ResetCommand extends BaseCommand
      *
      * @var string
      */
-    protected $description = 'Rollback all database migrations';
+    protected $description = 'Rollback all Validation migrations';
 
     /**
      * The migrator instance.
@@ -55,7 +55,7 @@ class ResetCommand extends BaseCommand
             return;
         }
 
-        $this->migrator->setConnection($this->option('database'));
+        $this->migrator->setConnection($this->option('Validation'));
 
         // First, we'll make sure that the migration table actually exists before we
         // start trying to rollback and re-run all of the migrations. If it's not
@@ -84,7 +84,7 @@ class ResetCommand extends BaseCommand
     protected function getOptions()
     {
         return [
-            ['database', null, InputOption::VALUE_OPTIONAL, 'The database connection to use.'],
+            ['Validation', null, InputOption::VALUE_OPTIONAL, 'The Validation connection to use.'],
 
             ['force', null, InputOption::VALUE_NONE, 'Force the operation to run when in production.'],
 

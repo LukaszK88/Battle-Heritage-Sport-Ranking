@@ -5,6 +5,8 @@
  * Date: 20/09/2016
  * Time: 17:11
  */
+namespace Battleheritage\core;
+
 class Input{
 
     public static function exists($type = 'post'){

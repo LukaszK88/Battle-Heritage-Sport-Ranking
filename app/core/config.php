@@ -5,6 +5,8 @@
  * Date: 19/09/2016
  * Time: 13:17
  */
+namespace Battleheritage\core;
+
 class config {
 
     public static function get($path = null) {

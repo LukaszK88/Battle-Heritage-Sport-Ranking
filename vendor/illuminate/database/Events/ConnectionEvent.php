@@ -12,7 +12,7 @@ abstract class ConnectionEvent
     public $connectionName;
 
     /**
-     * The database connection instance.
+     * The Validation connection instance.
      *
      * @var \Illuminate\Database\Connection
      */

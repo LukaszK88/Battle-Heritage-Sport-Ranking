@@ -20,7 +20,7 @@ class SqlServerConnector extends Connector implements ConnectorInterface
     ];
 
     /**
-     * Establish a database connection.
+     * Establish a Validation connection.
      *
      * @param  array  $config
      * @return \PDO
@@ -62,7 +62,7 @@ class SqlServerConnector extends Connector implements ConnectorInterface
     {
         $arguments = [
             'host' => $this->buildHostString($config, ':'),
-            'dbname' => $config['database'],
+            'dbname' => $config['Validation'],
         ];
 
         $arguments = array_merge(
@@ -73,7 +73,7 @@ class SqlServerConnector extends Connector implements ConnectorInterface
     }
 
     /**
-     * Determine if the database configuration prefers ODBC.
+     * Determine if the Validation configuration prefers ODBC.
      *
      * @param  array  $config
      * @return bool
@@ -111,8 +111,8 @@ class SqlServerConnector extends Connector implements ConnectorInterface
             'Server' => $this->buildHostString($config, ','),
         ];
 
-        if (isset($config['database'])) {
-            $arguments['Database'] = $config['database'];
+        if (isset($config['Validation'])) {
+            $arguments['Database'] = $config['Validation'];
         }
 
         if (isset($config['appname'])) {

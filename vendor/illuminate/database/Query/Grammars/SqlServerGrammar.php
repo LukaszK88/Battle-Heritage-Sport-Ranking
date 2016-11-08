@@ -35,7 +35,7 @@ class SqlServerGrammar extends Grammar
 
         // If an offset is present on the query, we will need to wrap the query in
         // a big "ANSI" offset syntax block. This is very nasty compared to the
-        // other database systems but is necessary for implementing features.
+        // other Validation systems but is necessary for implementing features.
         if ($query->offset > 0) {
             return $this->compileAnsiOffset($query, $components);
         }
@@ -104,7 +104,7 @@ class SqlServerGrammar extends Grammar
     protected function compileAnsiOffset(Builder $query, $components)
     {
         // An ORDER BY clause is required to make this offset query work, so if one does
-        // not exist we'll just create a dummy clause to trick the database and so it
+        // not exist we'll just create a dummy clause to trick the Validation and so it
         // does not complain about the queries for not having an "order by" clause.
         if (! isset($components['orders'])) {
             $components['orders'] = 'order by (select 0)';
@@ -260,7 +260,7 @@ class SqlServerGrammar extends Grammar
     }
 
     /**
-     * Get the format for database stored dates.
+     * Get the format for Validation stored dates.
      *
      * @return string
      */

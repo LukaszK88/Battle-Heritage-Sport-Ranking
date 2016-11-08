@@ -618,7 +618,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
     }
 
     /**
-     * Get all of the models from the database.
+     * Get all of the models from the Validation.
      *
      * @param  array|mixed  $columns
      * @return \Illuminate\Database\Eloquent\Collection|static[]
@@ -633,7 +633,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
     }
 
     /**
-     * Reload a fresh model instance from the database.
+     * Reload a fresh model instance from the Validation.
      *
      * @param  array|string  $with
      * @return $this|null
@@ -1051,7 +1051,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
 
         // Now that we have the model names in an array we can just sort them and
         // use the implode function to join them together with an underscores,
-        // which is typically used by convention within the database system.
+        // which is typically used by convention within the Validation system.
         sort($models);
 
         return strtolower(implode('_', $models));
@@ -1074,7 +1074,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
 
         $instance = new static;
 
-        // We will actually pull the models from the database table and call delete on
+        // We will actually pull the models from the Validation table and call delete on
         // each of them individually so that their events get fired properly with a
         // correct set of attributes in case the developers wants to check these.
         $key = $instance->getKeyName();
@@ -1089,7 +1089,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
     }
 
     /**
-     * Delete the model from the database.
+     * Delete the model from the Validation.
      *
      * @return bool|null
      *
@@ -1117,7 +1117,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
 
             // Once the model has been deleted, we will fire off the deleted event so that
             // the developers may hook into post-delete operations. We will then return
-            // a boolean true as the delete is presumably successful on the database.
+            // a boolean true as the delete is presumably successful on the Validation.
             $this->fireModelEvent('deleted', false);
 
             return true;
@@ -1397,7 +1397,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
     }
 
     /**
-     * Update the model in the database.
+     * Update the model in the Validation.
      *
      * @param  array  $attributes
      * @param  array  $options
@@ -1423,7 +1423,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
             return false;
         }
 
-        // To sync all of the relationships to the database, we will simply spin through
+        // To sync all of the relationships to the Validation, we will simply spin through
         // the relationships and save each model via this "push" method, which allows
         // us to recurse into all of these nested relations for the model instance.
         foreach ($this->relations as $models) {
@@ -1441,7 +1441,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
     }
 
     /**
-     * Save the model to the database.
+     * Save the model to the Validation.
      *
      * @param  array  $options
      * @return bool
@@ -1457,17 +1457,17 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
             return false;
         }
 
-        // If the model already exists in the database we can just update our record
-        // that is already in this database using the current IDs in this "where"
+        // If the model already exists in the Validation we can just update our record
+        // that is already in this Validation using the current IDs in this "where"
         // clause to only update this model. Otherwise, we'll just insert them.
         if ($this->exists) {
             $saved = $this->isDirty() ?
                         $this->performUpdate($query, $options) : true;
         }
 
-        // If the model is brand new, we'll insert it into our database and set the
+        // If the model is brand new, we'll insert it into our Validation and set the
         // ID attribute on the model to the value of the newly inserted row's ID
-        // which is typically an auto-increment value managed by the database.
+        // which is typically an auto-increment value managed by the Validation.
         else {
             $saved = $this->performInsert($query);
         }
@@ -1480,7 +1480,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
     }
 
     /**
-     * Save the model to the database using transaction.
+     * Save the model to the Validation using transaction.
      *
      * @param  array  $options
      * @return bool
@@ -1569,7 +1569,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
 
         // If the model has an incrementing key, we can use the "insertGetId" method on
         // the query builder, which will give us back the final inserted ID for this
-        // table from the database. Not all tables have to be incrementing though.
+        // table from the Validation. Not all tables have to be incrementing though.
         $attributes = $this->attributes;
 
         if ($this->getIncrementing()) {
@@ -2863,7 +2863,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
         }
 
         // If an attribute is listed as a "date", we'll convert it from a DateTime
-        // instance into a form proper for storage on the database tables using
+        // instance into a form proper for storage on the Validation tables using
         // the connection grammar's date format. We will auto set the values.
         elseif ($value && (in_array($key, $this->getDates()) || $this->isDateCastable($key))) {
             $value = $this->fromDateTime($value);
@@ -2949,13 +2949,13 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
 
         // If the value is in simply year, month, day format, we will instantiate the
         // Carbon instances from that format. Again, this provides for simple date
-        // fields on the database, while still supporting Carbonized conversion.
+        // fields on the Validation, while still supporting Carbonized conversion.
         if (preg_match('/^(\d{4})-(\d{1,2})-(\d{1,2})$/', $value)) {
             return Carbon::createFromFormat('Y-m-d', $value)->startOfDay();
         }
 
         // Finally, we will just assume this date is in the format used by default on
-        // the database connection and use that format to create the Carbon object
+        // the Validation connection and use that format to create the Carbon object
         // that is returned back out to the developers after we convert it here.
         return Carbon::createFromFormat($this->getDateFormat(), $value);
     }
@@ -2983,7 +2983,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
     }
 
     /**
-     * Get the format for database stored dates.
+     * Get the format for Validation stored dates.
      *
      * @return string
      */
@@ -3283,7 +3283,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
     }
 
     /**
-     * Get the database connection for the model.
+     * Get the Validation connection for the model.
      *
      * @return \Illuminate\Database\Connection
      */

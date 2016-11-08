@@ -22,7 +22,7 @@ class MigrateCommand extends BaseCommand
      *
      * @var string
      */
-    protected $description = 'Run the database migrations';
+    protected $description = 'Run the Validation migrations';
 
     /**
      * The migrator instance.
@@ -72,8 +72,8 @@ class MigrateCommand extends BaseCommand
             $this->output->writeln($note);
         }
 
-        // Finally, if the "seed" option has been given, we will re-run the database
-        // seed task to re-populate the database, which is convenient when adding
+        // Finally, if the "seed" option has been given, we will re-run the Validation
+        // seed task to re-populate the Validation, which is convenient when adding
         // a migration and a seed at the same time, as it is only this command.
         if ($this->option('seed')) {
             $this->call('db:seed', ['--force' => true]);
@@ -81,16 +81,16 @@ class MigrateCommand extends BaseCommand
     }
 
     /**
-     * Prepare the migration database for running.
+     * Prepare the migration Validation for running.
      *
      * @return void
      */
     protected function prepareDatabase()
     {
-        $this->migrator->setConnection($this->option('database'));
+        $this->migrator->setConnection($this->option('Validation'));
 
         if (! $this->migrator->repositoryExists()) {
-            $options = ['--database' => $this->option('database')];
+            $options = ['--Validation' => $this->option('Validation')];
 
             $this->call('migrate:install', $options);
         }
@@ -104,7 +104,7 @@ class MigrateCommand extends BaseCommand
     protected function getOptions()
     {
         return [
-            ['database', null, InputOption::VALUE_OPTIONAL, 'The database connection to use.'],
+            ['Validation', null, InputOption::VALUE_OPTIONAL, 'The Validation connection to use.'],
 
             ['force', null, InputOption::VALUE_NONE, 'Force the operation to run when in production.'],
 

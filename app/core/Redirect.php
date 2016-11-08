@@ -1,4 +1,6 @@
 <?php
+namespace Battleheritage\core;
+
 class Redirect{
 
     public static function to($location){

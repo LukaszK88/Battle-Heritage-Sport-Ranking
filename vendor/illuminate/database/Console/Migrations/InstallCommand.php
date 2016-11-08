@@ -49,7 +49,7 @@ class InstallCommand extends Command
      */
     public function fire()
     {
-        $this->repository->setSource($this->input->getOption('database'));
+        $this->repository->setSource($this->input->getOption('Validation'));
 
         $this->repository->createRepository();
 
@@ -64,7 +64,7 @@ class InstallCommand extends Command
     protected function getOptions()
     {
         return [
-            ['database', null, InputOption::VALUE_OPTIONAL, 'The database connection to use.'],
+            ['Validation', null, InputOption::VALUE_OPTIONAL, 'The Validation connection to use.'],
         ];
     }
 }

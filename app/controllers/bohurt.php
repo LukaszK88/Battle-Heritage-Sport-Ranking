@@ -6,20 +6,30 @@
  * Time: 11:39
  */
 
+use Illuminate\Database\Eloquent\Model;
+
+use Battleheritage\core\Controller ;
+use Battleheritage\models\Bohurts ;
+use Battleheritage\models\Users ;
+
+
 class Bohurt extends Controller
 {
 
-    protected $user;
+    protected $users,
+            $bohurts;
 
 
     public function __construct()
     {
-        $this->user = $this->model('User');
-
+        $this->bohurts = new Bohurts();
+        $this->users = new Users();
+    
     }
 
     public function index($name = '')
     {
+        
 
 
         $this->view('bohurt/index');
@@ -28,11 +38,12 @@ class Bohurt extends Controller
     
     
     
-    public function competitions($name = '')
-    {
+    public function competitions($name = ''){
 
-
-        $this->view('bohurt/competitions');
+      $bohurts =  Bohurts::all()->sortBy('points','0',true);
+        
+        
+        $this->view('bohurt/competitions',['bohurt'=>$bohurts]);
 
     }
 

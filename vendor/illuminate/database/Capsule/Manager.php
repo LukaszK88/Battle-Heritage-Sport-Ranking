@@ -15,14 +15,14 @@ class Manager
     use CapsuleManagerTrait;
 
     /**
-     * The database manager instance.
+     * The Validation manager instance.
      *
      * @var \Illuminate\Database\DatabaseManager
      */
     protected $manager;
 
     /**
-     * Create a new database capsule manager.
+     * Create a new Validation capsule manager.
      *
      * @param  \Illuminate\Container\Container|null  $container
      * @return void
@@ -32,7 +32,7 @@ class Manager
         $this->setupContainer($container ?: new Container);
 
         // Once we have the container setup, we will setup the default configuration
-        // options in the container "config" binding. This will make the database
+        // options in the container "config" binding. This will make the Validation
         // manager work correctly out of the box without extreme configuration.
         $this->setupDefaultConfiguration();
 
@@ -40,19 +40,19 @@ class Manager
     }
 
     /**
-     * Setup the default database configuration options.
+     * Setup the default Validation configuration options.
      *
      * @return void
      */
     protected function setupDefaultConfiguration()
     {
-        $this->container['config']['database.fetch'] = PDO::FETCH_OBJ;
+        $this->container['config']['Validation.fetch'] = PDO::FETCH_OBJ;
 
-        $this->container['config']['database.default'] = 'default';
+        $this->container['config']['Validation.default'] = 'default';
     }
 
     /**
-     * Build the database manager instance.
+     * Build the Validation manager instance.
      *
      * @return void
      */
@@ -117,11 +117,11 @@ class Manager
      */
     public function addConnection(array $config, $name = 'default')
     {
-        $connections = $this->container['config']['database.connections'];
+        $connections = $this->container['config']['Validation.connections'];
 
         $connections[$name] = $config;
 
-        $this->container['config']['database.connections'] = $connections;
+        $this->container['config']['Validation.connections'] = $connections;
     }
 
     /**
@@ -142,20 +142,20 @@ class Manager
     }
 
     /**
-     * Set the fetch mode for the database connections.
+     * Set the fetch mode for the Validation connections.
      *
      * @param  int  $fetchMode
      * @return $this
      */
     public function setFetchMode($fetchMode)
     {
-        $this->container['config']['database.fetch'] = $fetchMode;
+        $this->container['config']['Validation.fetch'] = $fetchMode;
 
         return $this;
     }
 
     /**
-     * Get the database manager instance.
+     * Get the Validation manager instance.
      *
      * @return \Illuminate\Database\DatabaseManager
      */

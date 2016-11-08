@@ -101,7 +101,7 @@ class Pivot extends Model
     }
 
     /**
-     * Delete the pivot model record from the database.
+     * Delete the pivot model record from the Validation.
      *
      * @return int
      */

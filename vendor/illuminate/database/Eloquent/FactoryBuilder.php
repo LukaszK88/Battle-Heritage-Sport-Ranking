@@ -74,7 +74,7 @@ class FactoryBuilder
     }
 
     /**
-     * Create a collection of models and persist them to the database.
+     * Create a collection of models and persist them to the Validation.
      *
      * @param  array  $attributes
      * @return mixed

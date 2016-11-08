@@ -5,6 +5,8 @@
  * Date: 20/09/2016
  * Time: 17:59
  */
+namespace Battleheritage\core;
+
 class Errors{
 
     public static $_errors = [];

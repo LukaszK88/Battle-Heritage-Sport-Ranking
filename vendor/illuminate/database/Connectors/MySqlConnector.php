@@ -7,7 +7,7 @@ use PDO;
 class MySqlConnector extends Connector implements ConnectorInterface
 {
     /**
-     * Establish a database connection.
+     * Establish a Validation connection.
      *
      * @param  array  $config
      * @return \PDO
@@ -23,8 +23,8 @@ class MySqlConnector extends Connector implements ConnectorInterface
         // connection's behavior, and some might be specified by the developers.
         $connection = $this->createConnection($dsn, $config, $options);
 
-        if (! empty($config['database'])) {
-            $connection->exec("use `{$config['database']}`;");
+        if (! empty($config['Validation'])) {
+            $connection->exec("use `{$config['Validation']}`;");
         }
 
         $collation = $config['collation'];
@@ -42,7 +42,7 @@ class MySqlConnector extends Connector implements ConnectorInterface
         }
         // Next, we will check to see if a timezone has been specified in this config
         // and if it has we will issue a statement to modify the timezone with the
-        // database. Setting this DB timezone is an optional configuration item.
+        // Validation. Setting this DB timezone is an optional configuration item.
         if (isset($config['timezone'])) {
             $connection->prepare(
                 'set time_zone="'.$config['timezone'].'"'
@@ -86,7 +86,7 @@ class MySqlConnector extends Connector implements ConnectorInterface
      */
     protected function getSocketDsn(array $config)
     {
-        return "mysql:unix_socket={$config['unix_socket']};dbname={$config['database']}";
+        return "mysql:unix_socket={$config['unix_socket']};dbname={$config['Validation']}";
     }
 
     /**

@@ -5,7 +5,7 @@ namespace Illuminate\Database\Connectors;
 interface ConnectorInterface
 {
     /**
-     * Establish a database connection.
+     * Establish a Validation connection.
      *
      * @param  array  $config
      * @return \PDO

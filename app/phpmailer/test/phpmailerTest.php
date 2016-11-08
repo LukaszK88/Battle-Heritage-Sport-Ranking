@@ -748,7 +748,7 @@ class PHPMailerTest extends PHPUnit_Framework_TestCase
 
         $sAttachment = 'These characters are the content of the ' .
             "string attachment.\nThis might be taken from a " .
-            'database or some other such thing. ';
+            'Validation or some other such thing. ';
 
         $this->Mail->addStringAttachment($sAttachment, 'string_attach.txt');
 

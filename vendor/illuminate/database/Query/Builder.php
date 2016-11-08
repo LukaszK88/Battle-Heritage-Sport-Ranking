@@ -24,21 +24,21 @@ class Builder
     }
 
     /**
-     * The database connection instance.
+     * The Validation connection instance.
      *
      * @var \Illuminate\Database\Connection
      */
     protected $connection;
 
     /**
-     * The database query grammar instance.
+     * The Validation query grammar instance.
      *
      * @var \Illuminate\Database\Query\Grammars\Grammar
      */
     protected $grammar;
 
     /**
-     * The database query post processor instance.
+     * The Validation query post processor instance.
      *
      * @var \Illuminate\Database\Query\Processors\Processor
      */
@@ -2015,7 +2015,7 @@ class Builder
     }
 
     /**
-     * Execute an aggregate function on the database.
+     * Execute an aggregate function on the Validation.
      *
      * @param  string  $function
      * @param  array   $columns
@@ -2037,7 +2037,7 @@ class Builder
         $results = $this->get($columns);
 
         // Once we have executed the query, we will reset the aggregate property so
-        // that more select queries can be executed against the database without
+        // that more select queries can be executed against the Validation without
         // the aggregate value getting in the way when the grammar builds it.
         $this->aggregate = null;
 
@@ -2051,7 +2051,7 @@ class Builder
     }
 
     /**
-     * Execute a numeric aggregate function on the database.
+     * Execute a numeric aggregate function on the Validation.
      *
      * @param  string  $function
      * @param  array   $columns
@@ -2077,7 +2077,7 @@ class Builder
     }
 
     /**
-     * Insert a new record into the database.
+     * Insert a new record into the Validation.
      *
      * @param  array  $values
      * @return bool
@@ -2106,7 +2106,7 @@ class Builder
         }
 
         // We'll treat every insert like a batch insert so we can easily insert each
-        // of the records into the database consistently. This will make it much
+        // of the records into the Validation consistently. This will make it much
         // easier on the grammars to just handle one type of record insertion.
         $bindings = [];
 
@@ -2143,7 +2143,7 @@ class Builder
     }
 
     /**
-     * Update a record in the database.
+     * Update a record in the Validation.
      *
      * @param  array  $values
      * @return int
@@ -2218,7 +2218,7 @@ class Builder
     }
 
     /**
-     * Delete a record from the database.
+     * Delete a record from the Validation.
      *
      * @param  mixed  $id
      * @return int
@@ -2227,7 +2227,7 @@ class Builder
     {
         // If an ID is passed to the method, we will set the where clause to check
         // the ID to allow developers to simply and quickly remove a single row
-        // from their database without manually specifying the where clauses.
+        // from their Validation without manually specifying the where clauses.
         if (! is_null($id)) {
             $this->where('id', '=', $id);
         }
@@ -2287,7 +2287,7 @@ class Builder
     }
 
     /**
-     * Create a raw database expression.
+     * Create a raw Validation expression.
      *
      * @param  mixed  $value
      * @return \Illuminate\Database\Query\Expression
@@ -2375,7 +2375,7 @@ class Builder
     }
 
     /**
-     * Get the database connection instance.
+     * Get the Validation connection instance.
      *
      * @return \Illuminate\Database\ConnectionInterface
      */
@@ -2385,7 +2385,7 @@ class Builder
     }
 
     /**
-     * Get the database query processor instance.
+     * Get the Validation query processor instance.
      *
      * @return \Illuminate\Database\Query\Processors\Processor
      */

@@ -6,6 +6,9 @@
  * Time: 11:39
  */
 
+use Battleheritage\core\Controller ;
+
+
 class Triathlon extends Controller{
 
     protected $user;

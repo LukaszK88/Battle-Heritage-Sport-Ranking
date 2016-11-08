@@ -5,6 +5,8 @@
  * Date: 04/10/2016
  * Time: 13:38
  */
+namespace Battleheritage\core;
+
 class Message{
 
     public static function setMessage($message,$type){

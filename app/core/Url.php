@@ -5,6 +5,10 @@
  * Date: 19/09/2016
  * Time: 13:37
  */
+namespace Battleheritage\core;
+
+use Battleheritage\core\config ;
+
 class Url{
     
     public static function path(){

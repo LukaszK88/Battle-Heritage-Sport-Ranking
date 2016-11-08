@@ -38,7 +38,7 @@ class MorphPivot extends Pivot
     }
 
     /**
-     * Delete the pivot model record from the database.
+     * Delete the pivot model record from the Validation.
      *
      * @return int
      */

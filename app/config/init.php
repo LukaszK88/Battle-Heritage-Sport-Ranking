@@ -8,10 +8,10 @@
 $GLOBALS['config'] = array(
 
     'mysql'    => array(
-        'host'                      => getenv('DB_HOST'),     // database hostname or IP address
+        'host'                      => getenv('DB_HOST'),     // Validation hostname or IP address
         'username'                  => getenv('DB_USERNAME'),          // username
         'password'                  => getenv('DB_PASSWORD'),              // password
-        'db'                        => getenv('DB_DB'),          // database name
+        'db'                        => getenv('DB_DB'),          // Validation name
     ),
     'remember'=>array(
         'cookie_name'=> 'hash',

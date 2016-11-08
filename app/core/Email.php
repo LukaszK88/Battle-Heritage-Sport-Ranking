@@ -5,6 +5,7 @@
  * Date: 25/10/2016
  * Time: 12:28
  */
+namespace Battleheritage\core;
 
 class Email{
 

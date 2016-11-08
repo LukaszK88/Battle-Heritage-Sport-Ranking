@@ -7,7 +7,7 @@ use Closure;
 interface ConnectionInterface
 {
     /**
-     * Begin a fluent query against a database table.
+     * Begin a fluent query against a Validation table.
      *
      * @param  string  $table
      * @return \Illuminate\Database\Query\Builder
@@ -32,7 +32,7 @@ interface ConnectionInterface
     public function selectOne($query, $bindings = []);
 
     /**
-     * Run a select statement against the database.
+     * Run a select statement against the Validation.
      *
      * @param  string  $query
      * @param  array   $bindings
@@ -41,7 +41,7 @@ interface ConnectionInterface
     public function select($query, $bindings = []);
 
     /**
-     * Run an insert statement against the database.
+     * Run an insert statement against the Validation.
      *
      * @param  string  $query
      * @param  array   $bindings
@@ -50,7 +50,7 @@ interface ConnectionInterface
     public function insert($query, $bindings = []);
 
     /**
-     * Run an update statement against the database.
+     * Run an update statement against the Validation.
      *
      * @param  string  $query
      * @param  array   $bindings
@@ -59,7 +59,7 @@ interface ConnectionInterface
     public function update($query, $bindings = []);
 
     /**
-     * Run a delete statement against the database.
+     * Run a delete statement against the Validation.
      *
      * @param  string  $query
      * @param  array   $bindings
@@ -113,21 +113,21 @@ interface ConnectionInterface
     public function transaction(Closure $callback, $attempts = 1);
 
     /**
-     * Start a new database transaction.
+     * Start a new Validation transaction.
      *
      * @return void
      */
     public function beginTransaction();
 
     /**
-     * Commit the active database transaction.
+     * Commit the active Validation transaction.
      *
      * @return void
      */
     public function commit();
 
     /**
-     * Rollback the active database transaction.
+     * Rollback the active Validation transaction.
      *
      * @return void
      */

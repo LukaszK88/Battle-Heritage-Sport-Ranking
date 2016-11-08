@@ -22,7 +22,7 @@ abstract class Seeder
     protected $command;
 
     /**
-     * Run the database seeds.
+     * Run the Validation seeds.
      *
      * @return void
      */

@@ -74,7 +74,7 @@ class Factory implements ArrayAccess
     }
 
     /**
-     * Create an instance of the given model and persist it to the database.
+     * Create an instance of the given model and persist it to the Validation.
      *
      * @param  string  $class
      * @param  array  $attributes
@@ -86,7 +86,7 @@ class Factory implements ArrayAccess
     }
 
     /**
-     * Create an instance of the given model and type and persist it to the database.
+     * Create an instance of the given model and type and persist it to the Validation.
      *
      * @param  string  $class
      * @param  string  $name

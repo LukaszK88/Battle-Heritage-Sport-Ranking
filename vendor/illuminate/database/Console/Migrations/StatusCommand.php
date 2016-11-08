@@ -53,7 +53,7 @@ class StatusCommand extends BaseCommand
             return $this->error('No migrations found.');
         }
 
-        $this->migrator->setConnection($this->option('database'));
+        $this->migrator->setConnection($this->option('Validation'));
 
         $ran = $this->migrator->getRepository()->getRan();
 
@@ -89,7 +89,7 @@ class StatusCommand extends BaseCommand
     protected function getOptions()
     {
         return [
-            ['database', null, InputOption::VALUE_OPTIONAL, 'The database connection to use.'],
+            ['Validation', null, InputOption::VALUE_OPTIONAL, 'The Validation connection to use.'],
 
             ['path', null, InputOption::VALUE_OPTIONAL, 'The path of migrations files to use.'],
         ];

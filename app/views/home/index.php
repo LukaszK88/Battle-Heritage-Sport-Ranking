@@ -26,14 +26,16 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <?php foreach ($data['users'] as $user) :?>
                                     <tr>
                                         <td>1</td>
-                                        <td>Pawel Kurzak</td>
-                                        <td>South East</td>
-                                        <th>Elite</th>
+                                        <td><?php echo $user->name?></td>
+                                        <td><?php echo $user->region?></td>
+                                        <th><?php echo $user->rank?></th>
                                         <td>img</td>
-                                        <td>50</td>
+                                        <td><?php echo $user->total_points?></td>
                                     </tr>
+                                    <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>

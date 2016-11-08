@@ -71,7 +71,7 @@ class Blueprint
     }
 
     /**
-     * Execute the blueprint against the database.
+     * Execute the blueprint against the Validation.
      *
      * @param  \Illuminate\Database\Connection  $connection
      * @param  \Illuminate\Database\Schema\Grammars\Grammar $grammar

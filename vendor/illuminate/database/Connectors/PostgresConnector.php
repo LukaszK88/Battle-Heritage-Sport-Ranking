@@ -19,7 +19,7 @@ class PostgresConnector extends Connector implements ConnectorInterface
     ];
 
     /**
-     * Establish a database connection.
+     * Establish a Validation connection.
      *
      * @param  array  $config
      * @return \PDO
@@ -41,7 +41,7 @@ class PostgresConnector extends Connector implements ConnectorInterface
 
         // Next, we will check to see if a timezone has been specified in this config
         // and if it has we will issue a statement to modify the timezone with the
-        // database. Setting this DB timezone is an optional configuration item.
+        // Validation. Setting this DB timezone is an optional configuration item.
         if (isset($config['timezone'])) {
             $timezone = $config['timezone'];
 
@@ -50,7 +50,7 @@ class PostgresConnector extends Connector implements ConnectorInterface
 
         // Unlike MySQL, Postgres allows the concept of "schema" and a default schema
         // may have been specified on the connections. If that is the case we will
-        // set the default schema search paths to the specified database schema.
+        // set the default schema search paths to the specified Validation schema.
         if (isset($config['schema'])) {
             $schema = $this->formatSchema($config['schema']);
 

@@ -24,7 +24,7 @@ class SeedCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Seed the database with records';
+    protected $description = 'Seed the Validation with records';
 
     /**
      * The connection resolver instance.
@@ -34,7 +34,7 @@ class SeedCommand extends Command
     protected $resolver;
 
     /**
-     * Create a new database seed command instance.
+     * Create a new Validation seed command instance.
      *
      * @param  \Illuminate\Database\ConnectionResolverInterface  $resolver
      * @return void
@@ -77,15 +77,15 @@ class SeedCommand extends Command
     }
 
     /**
-     * Get the name of the database connection to use.
+     * Get the name of the Validation connection to use.
      *
      * @return string
      */
     protected function getDatabase()
     {
-        $database = $this->input->getOption('database');
+        $database = $this->input->getOption('Validation');
 
-        return $database ?: $this->laravel['config']['database.default'];
+        return $database ?: $this->laravel['config']['Validation.default'];
     }
 
     /**
@@ -98,7 +98,7 @@ class SeedCommand extends Command
         return [
             ['class', null, InputOption::VALUE_OPTIONAL, 'The class name of the root seeder', 'DatabaseSeeder'],
 
-            ['database', null, InputOption::VALUE_OPTIONAL, 'The database connection to seed'],
+            ['Validation', null, InputOption::VALUE_OPTIONAL, 'The Validation connection to seed'],
 
             ['force', null, InputOption::VALUE_NONE, 'Force the operation to run when in production.'],
         ];

@@ -88,7 +88,7 @@ abstract class ServiceProvider
     }
 
     /**
-     * Register a database migration path.
+     * Register a Validation migration path.
      *
      * @param  array|string  $paths
      * @return void

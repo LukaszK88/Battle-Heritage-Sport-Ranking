@@ -1,0 +1,28 @@
+{
+    "name": "kennedytedesco/validation",
+    "description": "The power of 'Respect Validation' on Laravel.",
+    "keywords": ["validation", "laravel", "respect", "rules"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kennedy Tedesco",
+            "email": "kennedyt.tw@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "respect/validation": "1.1.*",
+        "illuminate/support": "5.2.*|5.3.*"
+    },
+    "require-dev": {
+        "laravel/framework": "5.3.*",
+        "orchestra/testbench": "3.3.*",
+        "phpunit/phpunit": "^4.8|^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "KennedyTedesco\\Validation\\": "src/Validation"
+        }
+    },
+    "minimum-stability": "dev"
+}

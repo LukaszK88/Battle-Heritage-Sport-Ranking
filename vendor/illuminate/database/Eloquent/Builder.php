@@ -510,7 +510,7 @@ class Builder
     }
 
     /**
-     * Update a record in the database.
+     * Update a record in the Validation.
      *
      * @param  array  $values
      * @return int
@@ -568,7 +568,7 @@ class Builder
     }
 
     /**
-     * Delete a record from the database.
+     * Delete a record from the Validation.
      *
      * @return mixed
      */

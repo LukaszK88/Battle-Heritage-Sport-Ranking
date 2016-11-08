@@ -22,7 +22,7 @@ class RollbackCommand extends BaseCommand
      *
      * @var string
      */
-    protected $description = 'Rollback the last database migration';
+    protected $description = 'Rollback the last Validation migration';
 
     /**
      * The migrator instance.
@@ -55,7 +55,7 @@ class RollbackCommand extends BaseCommand
             return;
         }
 
-        $this->migrator->setConnection($this->option('database'));
+        $this->migrator->setConnection($this->option('Validation'));
 
         $this->migrator->rollback(
             $this->getMigrationPaths(), ['pretend' => $this->option('pretend'), 'step' => (int) $this->option('step')]
@@ -77,7 +77,7 @@ class RollbackCommand extends BaseCommand
     protected function getOptions()
     {
         return [
-            ['database', null, InputOption::VALUE_OPTIONAL, 'The database connection to use.'],
+            ['Validation', null, InputOption::VALUE_OPTIONAL, 'The Validation connection to use.'],
 
             ['force', null, InputOption::VALUE_NONE, 'Force the operation to run when in production.'],
 

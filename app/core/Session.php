@@ -1,4 +1,6 @@
 <?php
+namespace Battleheritage\core;
+
 class Session{
     public static function exists($name){
         if(isset($_SESSION[$name])){

@@ -1,17 +1,32 @@
 <?php
-session_start();
-require '../vendor/autoload.php';
+use Battleheritage\core\App ;
 
-require 'database/Database.php';
+use Illuminate\Database\Capsule\Manager as Capsule;
+
+
+session_start();
+require_once 'config/init.php';
+
+
+require  __DIR__.'/../vendor/autoload.php';
 
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 
+$capsule = new Capsule;
+$capsule->addConnection([
+    'driver'    => 'mysql',
+    'host'      => '127.0.0.1',
+    'Validation'  => 'battleheritage',
+    'username'  => 'root',
+    'password'  => '',
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix'    => '',
+]);
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
 
-spl_autoload_register(function($class){
-    require_once 'core/' . $class . '.php';
-});
 
-
-require_once 'config/init.php';
+$app = new App();
 

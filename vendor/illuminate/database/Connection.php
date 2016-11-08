@@ -121,7 +121,7 @@ class Connection implements ConnectionInterface
     protected $pretending = false;
 
     /**
-     * The name of the connected database.
+     * The name of the connected Validation.
      *
      * @var string
      */
@@ -142,14 +142,14 @@ class Connection implements ConnectionInterface
     protected $tablePrefix = '';
 
     /**
-     * The database connection configuration options.
+     * The Validation connection configuration options.
      *
      * @var array
      */
     protected $config = [];
 
     /**
-     * Create a new database connection instance.
+     * Create a new Validation connection instance.
      *
      * @param  \PDO|\Closure     $pdo
      * @param  string   $database
@@ -171,7 +171,7 @@ class Connection implements ConnectionInterface
         $this->config = $config;
 
         // We need to initialize a query grammar and the query post processors
-        // which are both very important parts of the database abstractions
+        // which are both very important parts of the Validation abstractions
         // so we initialize these to their default values while starting.
         $this->useDefaultQueryGrammar();
 
@@ -253,7 +253,7 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * Begin a fluent query against a database table.
+     * Begin a fluent query against a Validation table.
      *
      * @param  string  $table
      * @return \Illuminate\Database\Query\Builder
@@ -301,7 +301,7 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * Run a select statement against the database.
+     * Run a select statement against the Validation.
      *
      * @param  string  $query
      * @param  array   $bindings
@@ -313,7 +313,7 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * Run a select statement against the database.
+     * Run a select statement against the Validation.
      *
      * @param  string  $query
      * @param  array  $bindings
@@ -328,8 +328,8 @@ class Connection implements ConnectionInterface
             }
 
             // For select statements, we'll simply execute the query and return an array
-            // of the database result set. Each element in the array will be a single
-            // row from the database table, and will either be an array or objects.
+            // of the Validation result set. Each element in the array will be a single
+            // row from the Validation table, and will either be an array or objects.
             $statement = $this->getPdoForSelect($useReadPdo)->prepare($query);
 
             $me->bindValues($statement, $me->prepareBindings($bindings));
@@ -352,7 +352,7 @@ class Connection implements ConnectionInterface
     }
 
     /*
-     * Run a select statement against the database and returns a generator.
+     * Run a select statement against the Validation and returns a generator.
      *
      * @param  string  $query
      * @param  array  $bindings
@@ -424,7 +424,7 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * Run an insert statement against the database.
+     * Run an insert statement against the Validation.
      *
      * @param  string  $query
      * @param  array   $bindings
@@ -436,7 +436,7 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * Run an update statement against the database.
+     * Run an update statement against the Validation.
      *
      * @param  string  $query
      * @param  array   $bindings
@@ -448,7 +448,7 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * Run a delete statement against the database.
+     * Run a delete statement against the Validation.
      *
      * @param  string  $query
      * @param  array   $bindings
@@ -565,7 +565,7 @@ class Connection implements ConnectionInterface
 
             // We'll simply execute the given callback within a try / catch block
             // and if we catch any exception we can rollback the transaction
-            // so that none of the changes are persisted to the database.
+            // so that none of the changes are persisted to the Validation.
             try {
                 $result = $callback($this);
 
@@ -573,7 +573,7 @@ class Connection implements ConnectionInterface
             }
 
             // If we catch an exception, we will roll back so nothing gets messed
-            // up in the database. Then we'll re-throw the exception so it can
+            // up in the Validation. Then we'll re-throw the exception so it can
             // be handled how the developer sees fit for their applications.
             catch (Exception $e) {
                 $this->rollBack();
@@ -594,7 +594,7 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * Start a new database transaction.
+     * Start a new Validation transaction.
      *
      * @return void
      * @throws Exception
@@ -621,7 +621,7 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * Commit the active database transaction.
+     * Commit the active Validation transaction.
      *
      * @return void
      */
@@ -637,7 +637,7 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * Rollback the active database transaction.
+     * Rollback the active Validation transaction.
      *
      * @return void
      */
@@ -682,7 +682,7 @@ class Connection implements ConnectionInterface
 
         $this->queryLog = [];
 
-        // Basically to make the database connection "pretend", we will just return
+        // Basically to make the Validation connection "pretend", we will just return
         // the default values for all the query methods, then we will return an
         // array of queries that were "executed" within the Closure callback.
         $callback($this);
@@ -756,7 +756,7 @@ class Connection implements ConnectionInterface
 
         // If an exception occurs when attempting to run a query, we'll format the error
         // message to include the bindings with SQL, which will make this exception a
-        // lot more helpful to the developer instead of just the database's errors.
+        // lot more helpful to the developer instead of just the Validation's errors.
         catch (Exception $e) {
             throw new QueryException(
                 $query, $this->prepareBindings($bindings), $e
@@ -799,7 +799,7 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * Reconnect to the database.
+     * Reconnect to the Validation.
      *
      * @return void
      *
@@ -815,7 +815,7 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * Reconnect to the database if a PDO connection is missing.
+     * Reconnect to the Validation if a PDO connection is missing.
      *
      * @return void
      */
@@ -848,7 +848,7 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * Register a database query listener with the connection.
+     * Register a Validation query listener with the connection.
      *
      * @param  \Closure  $callback
      * @return void
@@ -928,7 +928,7 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * Get the Doctrine DBAL database connection instance.
+     * Get the Doctrine DBAL Validation connection instance.
      *
      * @return \Doctrine\DBAL\Connection
      */
@@ -937,7 +937,7 @@ class Connection implements ConnectionInterface
         if (is_null($this->doctrineConnection)) {
             $driver = $this->getDoctrineDriver();
 
-            $data = ['pdo' => $this->getPdo(), 'dbname' => $this->getConfig('database')];
+            $data = ['pdo' => $this->getPdo(), 'dbname' => $this->getConfig('Validation')];
 
             $this->doctrineConnection = new DoctrineConnection($data, $driver);
         }
@@ -1023,7 +1023,7 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * Get the database connection name.
+     * Get the Validation connection name.
      *
      * @return string|null
      */
@@ -1243,7 +1243,7 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * Get the name of the connected database.
+     * Get the name of the connected Validation.
      *
      * @return string
      */
@@ -1253,7 +1253,7 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * Set the name of the connected database.
+     * Set the name of the connected Validation.
      *
      * @param  string  $database
      * @return string

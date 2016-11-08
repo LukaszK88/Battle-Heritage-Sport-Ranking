@@ -35,7 +35,7 @@ class RefreshCommand extends Command
             return;
         }
 
-        $database = $this->input->getOption('database');
+        $database = $this->input->getOption('Validation');
 
         $force = $this->input->getOption('force');
 
@@ -48,19 +48,19 @@ class RefreshCommand extends Command
 
         if ($step > 0) {
             $this->call('migrate:rollback', [
-                '--database' => $database, '--force' => $force, '--path' => $path, '--step' => $step,
+                '--Validation' => $database, '--force' => $force, '--path' => $path, '--step' => $step,
             ]);
         } else {
             $this->call('migrate:reset', [
-                '--database' => $database, '--force' => $force, '--path' => $path,
+                '--Validation' => $database, '--force' => $force, '--path' => $path,
             ]);
         }
 
         // The refresh command is essentially just a brief aggregate of a few other of
         // the migration commands and just provides a convenient wrapper to execute
-        // them in succession. We'll also see if we need to re-seed the database.
+        // them in succession. We'll also see if we need to re-seed the Validation.
         $this->call('migrate', [
-            '--database' => $database,
+            '--Validation' => $database,
             '--force' => $force,
             '--path' => $path,
         ]);
@@ -71,7 +71,7 @@ class RefreshCommand extends Command
     }
 
     /**
-     * Determine if the developer has requested database seeding.
+     * Determine if the developer has requested Validation seeding.
      *
      * @return bool
      */
@@ -81,7 +81,7 @@ class RefreshCommand extends Command
     }
 
     /**
-     * Run the database seeder command.
+     * Run the Validation seeder command.
      *
      * @param  string  $database
      * @return void
@@ -93,7 +93,7 @@ class RefreshCommand extends Command
         $force = $this->input->getOption('force');
 
         $this->call('db:seed', [
-            '--database' => $database, '--class' => $class, '--force' => $force,
+            '--Validation' => $database, '--class' => $class, '--force' => $force,
         ]);
     }
 
@@ -105,7 +105,7 @@ class RefreshCommand extends Command
     protected function getOptions()
     {
         return [
-            ['database', null, InputOption::VALUE_OPTIONAL, 'The database connection to use.'],
+            ['Validation', null, InputOption::VALUE_OPTIONAL, 'The Validation connection to use.'],
 
             ['force', null, InputOption::VALUE_NONE, 'Force the operation to run when in production.'],
 

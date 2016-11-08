@@ -1,6 +1,14 @@
 {
     "require": {
         "vlucas/phpdotenv": "^2.4",
-        "illuminate/database": "v5.3.16"
+        "illuminate/database": "v5.3.16",
+        "kennedytedesco/validation": "~3.0",
+        "respect/validation": "^1.1"
+
+    },
+    "autoload": {
+        "psr-4": {
+            "Battleheritage\\": "app"
+        }
     }
 }

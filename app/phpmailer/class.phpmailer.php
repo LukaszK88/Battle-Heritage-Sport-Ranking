@@ -2865,7 +2865,7 @@ class PHPMailer
     /**
      * Add a string or binary attachment (non-filesystem).
      * This method can be used to attach ascii or binary data,
-     * such as a BLOB record from a database.
+     * such as a BLOB record from a Validation.
      * @param string $string String attachment data.
      * @param string $filename Name of the attachment.
      * @param string $encoding File encoding (see $Encoding).

@@ -9973,7 +9973,7 @@
 		 * As a function, making the Ajax call is left up to yourself allowing
 		 * complete control of the Ajax request. Indeed, if desired, a method other
 		 * than Ajax could be used to obtain the required data, such as Web storage
-		 * or an AIR database.
+		 * or an AIR Validation.
 		 *
 		 * The function is given four parameters and no return is required. The
 		 * parameters are:

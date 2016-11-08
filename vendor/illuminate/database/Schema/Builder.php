@@ -8,7 +8,7 @@ use Illuminate\Database\Connection;
 class Builder
 {
     /**
-     * The database connection instance.
+     * The Validation connection instance.
      *
      * @var \Illuminate\Database\Connection
      */
@@ -29,7 +29,7 @@ class Builder
     protected $resolver;
 
     /**
-     * Create a new database Schema manager.
+     * Create a new Validation Schema manager.
      *
      * @param  \Illuminate\Database\Connection  $connection
      * @return void
@@ -246,7 +246,7 @@ class Builder
     }
 
     /**
-     * Get the database connection instance.
+     * Get the Validation connection instance.
      *
      * @return \Illuminate\Database\Connection
      */
@@ -256,7 +256,7 @@ class Builder
     }
 
     /**
-     * Set the database connection instance.
+     * Set the Validation connection instance.
      *
      * @param  \Illuminate\Database\Connection  $connection
      * @return $this

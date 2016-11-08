@@ -18,6 +18,14 @@ class ComposerStaticInit03946cd0becd67941d9c5a30e5b8a1a6
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\Translation\\' => 30,
         ),
+        'R' => 
+        array (
+            'Respect\\Validation\\' => 19,
+        ),
+        'K' => 
+        array (
+            'KennedyTedesco\\Validation\\' => 26,
+        ),
         'I' => 
         array (
             'Illuminate\\Support\\' => 19,
@@ -33,6 +41,10 @@ class ComposerStaticInit03946cd0becd67941d9c5a30e5b8a1a6
         array (
             'Carbon\\' => 7,
         ),
+        'B' => 
+        array (
+            'Battleheritage\\' => 15,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -43,6 +55,14 @@ class ComposerStaticInit03946cd0becd67941d9c5a30e5b8a1a6
         'Symfony\\Component\\Translation\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/translation',
+        ),
+        'Respect\\Validation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/respect/validation/library',
+        ),
+        'KennedyTedesco\\Validation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kennedytedesco/validation/src/Validation',
         ),
         'Illuminate\\Support\\' => 
         array (
@@ -67,6 +87,10 @@ class ComposerStaticInit03946cd0becd67941d9c5a30e5b8a1a6
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
+        ),
+        'Battleheritage\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app',
         ),
     );
 

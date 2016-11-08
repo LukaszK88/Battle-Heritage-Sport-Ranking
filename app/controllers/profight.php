@@ -5,6 +5,8 @@
  * Date: 07/11/2016
  * Time: 09:24
  */
+use Battleheritage\core\Controller ;
+
 class Profight extends Controller
 {
 

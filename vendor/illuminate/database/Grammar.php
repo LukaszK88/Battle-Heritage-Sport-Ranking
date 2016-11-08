@@ -154,7 +154,7 @@ abstract class Grammar
     }
 
     /**
-     * Get the format for database stored dates.
+     * Get the format for Validation stored dates.
      *
      * @return string
      */

@@ -1,19 +1,16 @@
 <?php
 
+namespace Battleheritage\core;
+
+
+use Battleheritage\core\config ;
+use Battleheritage\core\Errors ;
+
+
+
 class Controller{
 
-    public $model;
 
-    public function model($model){
-        if(!file_exists('../app/models/' .$model. '.php')){
-            Errors::addError(Errors::errorMsg('2',array($model)));
-        }else {
-            require_once '../app/models/' . $model . '.php';
-            return new $model;
-        }
-
-    }
-    
     public function view($view, $data=[], $dontIncludeFile = false){
         if(!file_exists('../app/views/' .$view. '.php')){
             Errors::addError(Errors::errorMsg('1',array($view)));

@@ -28,16 +28,19 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <?php foreach ($data['bohurt'] as $bohurt) :?>
+                                        <?php $points = (($bohurt->fights-$bohurt->down)-($bohurt->suicide*3))  ?>
                                     <tr>
-                                        <td>1</td>
-                                        <td>Pawel Kurzak</td>
-                                        <td>South East</td>
-                                        <td>3</td>
-                                        <td>1</td>
-                                        <td>0</td>
+                                        <td><?php  ?></td>
+                                        <td><?php echo $bohurt->users->name ?> </td>
+                                        <td><?php echo $bohurt->users->region ?></td>
+                                        <td><?php echo $bohurt->fights ?></td>
+                                        <td><?php echo $bohurt->down ?></td>
+                                        <td><?php echo $bohurt->suicide ?></td>
                                         <td>80%</td>
-                                        <td>50</td>
+                                        <td><?php echo $points ?></td>
                                     </tr>
+                                    <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>

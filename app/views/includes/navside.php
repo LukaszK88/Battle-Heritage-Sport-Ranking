@@ -4,7 +4,9 @@
  * User: Lukasz
  * Date: 07/11/2016
  * Time: 08:39
- */?>
+ */
+use Battleheritage\core\Url ;
+?>
 
 <div class="navbar-default sidebar" role="navigation">
     <div class="sidebar-nav navbar-collapse">

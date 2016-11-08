@@ -4,7 +4,9 @@
  * User: Lukasz
  * Date: 07/11/2016
  * Time: 08:36
- */?>
+ */
+use Battleheritage\core\Url ;
+?>
 <!DOCTYPE html>
 <html lang="en">
 

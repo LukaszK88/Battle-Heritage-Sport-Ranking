@@ -7,7 +7,7 @@ use Illuminate\Database\ConnectionResolverInterface as Resolver;
 class DatabaseMigrationRepository implements MigrationRepositoryInterface
 {
     /**
-     * The database connection resolver instance.
+     * The Validation connection resolver instance.
      *
      * @var \Illuminate\Database\ConnectionResolverInterface
      */
@@ -21,14 +21,14 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
     protected $table;
 
     /**
-     * The name of the database connection to use.
+     * The name of the Validation connection to use.
      *
      * @var string
      */
     protected $connection;
 
     /**
-     * Create a new database migration repository instance.
+     * Create a new Validation migration repository instance.
      *
      * @param  \Illuminate\Database\ConnectionResolverInterface  $resolver
      * @param  string  $table
@@ -175,7 +175,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
     }
 
     /**
-     * Resolve the database connection instance.
+     * Resolve the Validation connection instance.
      *
      * @return \Illuminate\Database\Connection
      */

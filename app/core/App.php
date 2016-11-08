@@ -1,5 +1,8 @@
 <?php
 
+namespace Battleheritage\core;
+
+
 Class App{
 
     protected $controller = 'home';

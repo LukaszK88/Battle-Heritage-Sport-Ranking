@@ -84,7 +84,7 @@ class Migrator
 
         // Once we grab all of the migration files for the path, we will compare them
         // against the migrations that have already been run for this package then
-        // run each of the outstanding migrations against a database connection.
+        // run each of the outstanding migrations against a Validation connection.
         $ran = $this->repository->getRan();
 
         $migrations = Collection::make($files)
@@ -110,7 +110,7 @@ class Migrator
     {
         // First we will just make sure that there are any migrations to run. If there
         // aren't, we will just make a note of it to the developer so they're aware
-        // that all of the migrations have been run against this database system.
+        // that all of the migrations have been run against this Validation system.
         if (count($migrations) == 0) {
             $this->note('<info>Nothing to migrate.</info>');
 
@@ -234,8 +234,8 @@ class Migrator
         $files = $this->getMigrationFiles($paths);
 
         // Next, we will reverse the migration list so we can run them back in the
-        // correct order for resetting this database. This will allow us to get
-        // the database back into its "empty" state ready for the migrations.
+        // correct order for resetting this Validation. This will allow us to get
+        // the Validation back into its "empty" state ready for the migrations.
         $migrations = array_reverse($this->repository->getRan());
 
         $count = count($migrations);
@@ -246,7 +246,7 @@ class Migrator
             $this->requireFiles($files);
 
             // Next we will run through all of the migrations and call the "down" method
-            // which will reverse each migration in order. This will get the database
+            // which will reverse each migration in order. This will get the Validation
             // back to its original "empty" state and will be ready for migrations.
             foreach ($migrations as $migration) {
                 $rolledBack[] = $files[$migration];
@@ -347,8 +347,8 @@ class Migrator
         $connection = $migration->getConnection();
 
         // Now that we have the connections we can resolve it and pretend to run the
-        // queries against the database returning the array of raw SQL statements
-        // that would get fired against the database system for this migration.
+        // queries against the Validation returning the array of raw SQL statements
+        // that would get fired against the Validation system for this migration.
         $db = $this->resolveConnection($connection);
 
         return $db->pretend(function () use ($migration, $method) {
@@ -402,7 +402,7 @@ class Migrator
     }
 
     /**
-     * Resolve the database connection instance.
+     * Resolve the Validation connection instance.
      *
      * @param  string  $connection
      * @return \Illuminate\Database\Connection
