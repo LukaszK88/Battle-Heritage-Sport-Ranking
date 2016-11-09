@@ -13,7 +13,8 @@ use Battleheritage\core\Url ;
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Bohurt Ranking</h1>
+                    <h1 class="page-header">Bohurt Ranking  <a href="<?php echo Url::path()?>/home/admin" class="btn btn-danger btn-sm pull-right">Add Fighter</a></h1>
+
 
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">

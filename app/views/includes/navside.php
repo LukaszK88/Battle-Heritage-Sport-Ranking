@@ -40,10 +40,10 @@ use Battleheritage\core\Url ;
                                 <a href="<?php echo Url::path()?>/imcf/swords">Sword and Shield</a>
                             </li>
                             <li>
-                                <a href="<?php echo Url::path()?>/imcf/longsword">Longsword</a>
+                                <a href="<?php echo Url::path()?>/imcf/longswords">Longsword</a>
                             </li>
                             <li>
-                                <a href="<?php echo Url::path()?>/imcf/polearm">Polearm</a>
+                                <a href="<?php echo Url::path()?>/imcf/polearms">Polearm</a>
                             </li>
                         </ul>
                         <!-- /.nav-third-level -->

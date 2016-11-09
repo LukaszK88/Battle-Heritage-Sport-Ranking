@@ -9,8 +9,8 @@
 use Battleheritage\core\Controller ;
 use Battleheritage\models\Users ;
 use Battleheritage\models\Swords;
-use Battleheritage\models\Longsword;
-use Battleheritage\models\Polearm;
+use Battleheritage\models\Longswords;
+use Battleheritage\models\Polearms;
 
 use Battleheritage\core\Redirect ;
 use Battleheritage\core\Url ;
@@ -24,20 +24,22 @@ class Imcf extends Controller{
 
     protected   $user,
                 $swords,
+                $longswords,
+                $polearms,
                 $validator;
 
 
-    public function __construct()
-    {
+    public function __construct(){
+        
         $this->user = new Users();
         $this->validator = new Validator();
         $this->swords = new Swords();
+        $this->longswords = new Longswords();
+        $this->polearms = new Polearms();
 
     }
 
-    public function index($name = '')
-    {
-
+    public function index($name = ''){
 
         $this->view('imcf/index');
 
@@ -48,25 +50,23 @@ class Imcf extends Controller{
 
         $swords = Swords::all()->sortBy('points','0',true);
 
-        echo $swords;
-
         $this->view('imcf/swords',['swords'=>$swords]);
 
     }
 
-    public function longsword($name = '')
-    {
+    public function longswords($name = ''){
 
+        $longswords = Longswords::all()->sortBy('points','0',true);
 
-        $this->view('imcf/longsword');
+        $this->view('imcf/longswords',['longswords'=>$longswords]);
 
     }
 
-    public function polearm($name = '')
-    {
+    public function polearms($name = ''){
 
+        $polearms = Polearms::all()->sortBy('points','0',true);
 
-        $this->view('imcf/polearm');
+        $this->view('imcf/polearms',['polearms'=>$polearms]);
 
     }
 

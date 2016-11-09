@@ -20,10 +20,6 @@ class Users extends Model{
         'total_points'
     ];
     
-    public function points(){
-        return $this->hasMany('points','user_id');
-    }
-
   
     public function bohurts(){
 
@@ -38,6 +34,21 @@ class Users extends Model{
     public function swords(){
 
         return $this->hasOne('Battleheritage\models\Swords','user_id');
+    }
+
+    public function longswords(){
+
+        return $this->hasOne('Battleheritage\models\Longswords','user_id');
+    }
+
+    public function polearms(){
+
+        return $this->hasOne('Battleheritage\models\Polearms','user_id');
+    }
+
+    public function triathlons(){
+
+        return $this->hasOne('Battleheritage\models\Triathlons','user_id');
     }
 
 }

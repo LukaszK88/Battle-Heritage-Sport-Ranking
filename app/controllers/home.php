@@ -41,13 +41,44 @@ class Home extends Controller{
 
         $users = Users::all();
 
-        //echo $users;
-
         foreach ($users as $user){
+            if(!empty($user->bohurts->points)){
+                $bohurtPoints = $user->bohurts->points;
+            }else{
+                $bohurtPoints = 0;
+            }
+            if(!empty($user->profights->points)){
+                $profightsPoints = $user->profights->points;
+            }else{
+                $profightsPoints = 0;
+            }
+            if(!empty($user->swords->points)){
+                $swordsPoints = $user->swords->points;
+            }else{
+                $swordsPoints = 0;
+            }
+            if(!empty($user->longswords->points)){
+                $longswordsPoints = $user->longswords->points;
+            }else{
+                $longswordsPoints = 0;
+            }
+            if(!empty($user->polearms->points)){
+                $polearmsPoints = $user->polearms->points;
+            }else{
+                $polearmsPoints = 0;
+            }
+            if(!empty($user->triathlons->points)){
+                $triathlonsPoints = $user->triathlons->points;
+            }else{
+                $triathlonsPoints = 0;
+            }
 
-                    $user->total_points = ($user->bohurts->points + $user->profights->points + $user->swords->points);
 
-                    $user->save();
+            $totalPoints = $bohurtPoints+$profightsPoints+$swordsPoints+$longswordsPoints+$polearmsPoints+$triathlonsPoints;
+
+            $user->total_points = $totalPoints;
+
+            $user->save();
 
         }
 
@@ -299,10 +330,23 @@ class Home extends Controller{
 
     public function update($userId = '',$category = ''){
 
-       if(!empty(Input::get('category'))) {
-           Redirect::to(Url::path().'/'.Input::get('category').'/addRecord/'.$userId);
-       }
-       
+        if(!empty(Input::get('discipline'))){
+
+            Redirect::to(Url::path().'/'.$category.'/addRecord/'.$userId.'/'.Input::get('discipline'));
+
+        }else {
+
+            if ((Input::get('category') == 'imcf')) {
+
+                $category = Input::get('category');
+
+                Redirect::to(Url::path() . '/home/update/' . $userId . '/' . $category);
+
+
+            } elseif (!empty(Input::get('category'))) {
+                Redirect::to(Url::path() . '/' . Input::get('category') . '/addRecord/' . $userId);
+            }
+        }
         $this->view('home/update',['userId'=>$userId,'category'=>$category]);
     }
 

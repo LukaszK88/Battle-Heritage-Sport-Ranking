@@ -20,6 +20,22 @@ use Battleheritage\core\Input;
                 <div class="col-lg-4 col-lg-offset-4">
                     <?php Message::displayMessage(); ?>
                     <h2>Update Fighter record</h2>
+                    <?php if($data['category']=='imcf'):?>
+
+                        <form action="" method="post">
+                            <div class="form-group">
+                                <label for="discipline">Discipline:</label><br>
+                                <select name="discipline" class="form-control" >
+                                    <option >swords</option>
+                                    <option >longswords</option>
+                                    <option >polearms</option>
+                                </select>
+                            </div>
+                            <button type="submit" name="submit" class="btn btn-success">Submit</button><br><br>
+                        </form>
+
+                    <?php else :?>
+
                     <form action="" method="post">
                         <div class="form-group">
                             <label for="category">Category:</label><br>
@@ -33,6 +49,7 @@ use Battleheritage\core\Input;
                         <button type="submit" name="submit" class="btn btn-success">Submit</button><br><br>
                     </form>
 
+                    <?php endif;?>
                 </div>
 
 
