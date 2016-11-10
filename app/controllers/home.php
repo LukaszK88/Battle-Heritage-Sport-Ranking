@@ -94,6 +94,18 @@ class Home extends Controller{
 
     }
 
+    public function profile($userId = ''){
+
+        $user = Users::where('id',$userId)->first();
+        if(!$user){
+            Redirect::to(Url::path().'/home/index');
+        }
+
+
+        $this->view('home/profile',['user'=>$user]);
+
+    }
+
     public function register($name = ''){
 
         $user = $this->user;
@@ -350,31 +362,61 @@ class Home extends Controller{
         $this->view('home/update',['userId'=>$userId,'category'=>$category]);
     }
 
-    public function admin($update = ''){
+    public function admin($id = ''){
 
-        if(Input::exists()) {
+        if(!empty($id)){
+            $user = Users::where('id',$id)->first();
+        }else{
+            $user='';
+        }
+
+        if(isset($_FILES['image']['name'])) {
+            if (!empty($_FILES['image']['name'])) {
+                $name = $_FILES['image']['name'];
+                $tmp_name = $_FILES['image']['tmp_name'];
+                $location = 'images/';
+                if (move_uploaded_file($tmp_name, $location . $name)) {
+
+                    Message::setMessage('Photo uploaded','success');
+                }else{
+                    Message::setMessage('couldnt upload photo','error');
+                }
+            }else{
+                Message::setMessage('Image empty','error');
+            }
+        }else{
+            Message::setMessage('Image not set','error');
+        }
+
+                    if(Input::exists()) {
             $validation = $this->validator->validate($_POST, AddUser::rules());
 
             if ($validation->fails()) {
+                if(!empty($id)){
+                    Redirect::to(Url::path().'/home/admin/'.$id);
+                }
 
                  Redirect::to(Url::path().'/home/admin');
             }
 
-            $user = $this->user->firstOrCreate(array(
-                'name' => Input::get('name'),
+            $user = $this->user->updateOrCreate(['id' => $id],
+                ['name' => Input::get('name'),
                 'age' => Input::get('age'),
                 'rank' => Input::get('rank'),
                 'weight' => Input::get('weight'),
-                'region' => Input::get('region')
-                //'total_points' => $this->user->bohurts()
-            ));
+                'region' => Input::get('region'),
+                'quote' => Input::get('quote'),
+                'about' => Input::get('about'), 
+                    'image'=> Url::path().'/images/'.$_FILES['image']['name']
 
-            $user->save();
+            ]);
 
             Redirect::to(Url::path().'/home/index');
-
         }
-        $this->view('home/admin');
+
+
+
+        $this->view('home/admin',['user'=>$user]);
     }
     
 }

@@ -6,6 +6,7 @@
  * Time: 16:56
  */
 use Battleheritage\core\Url ;
+use Battleheritage\core\Message ;
 ?>
 
     <!-- Page Content -->
@@ -13,7 +14,8 @@ use Battleheritage\core\Url ;
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Overall Ranking</h1>
+                    <?php Message::displayMessage(); ?>
+                    <h1 class="page-header">Overall Ranking <a href="<?php echo Url::path()?>/home/admin" class="btn btn-danger btn-sm pull-right">Add Fighter</a></h1>
 
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
@@ -34,7 +36,7 @@ use Battleheritage\core\Url ;
                                     <tr>
 
                                         <td><?php echo $n++  ?></td>
-                                        <td><?php echo $user->name?></td>
+                                        <td><a href="<?php echo Url::path()?>/home/profile/<?php echo $user->id?>"><?php echo $user->name?></a></td>
                                         <td><?php echo $user->region?></td>
                                         <th><?php echo $user->rank?></th>
                                         <td>img</td>

@@ -32,7 +32,7 @@ use Battleheritage\core\Url ;
                         <?php foreach ($data['polearms'] as $polearm) :?>
                             <tr>
                                 <td><?php echo $n++ ?></td>
-                                <td><?php echo $polearm->users->name ?></td>
+                                <td><a href="<?php echo Url::path()?>/home/profile/<?php echo $polearm->user_id?>"><?php echo $polearm->users->name ?></a></td>
                                 <td><?php echo $polearm->users->region ?></td>
                                 <td><?php echo $polearm->win ?></td>
                                 <td><?php echo $polearm->loss ?></td>

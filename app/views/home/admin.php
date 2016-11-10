@@ -19,10 +19,10 @@ use Battleheritage\core\Input;
                 <div class="col-lg-4 col-lg-offset-4">
                     <?php Message::displayMessage(); ?>
                     <h2>Add Fighter</h2>
-                    <form action="" method="post">
+                    <form action="" method="post" enctype="multipart/form-data">
                         <div class="form-group <?php if(Validator::validationErrorExists('name')):  ?> has-error <?php endif; ?> ">
                             <label for="name">Name</label>
-                            <input name="name" class="form-control" value="<?php echo Input::get('name')?>">
+                            <input name="name" class="form-control" value="<?php echo !empty($data['user']->name) ? $data['user']->name : Input::get('name');?>">
 
                                 <span class="help-block">
                                     <?php Validator::validationError('name') ?>
@@ -31,7 +31,7 @@ use Battleheritage\core\Input;
                         </div>
                         <div class="form-group <?php if(Validator::validationErrorExists('rank')):  ?> has-error <?php endif; ?>">
                             <label for="rank">Rank</label>
-                            <input name="rank" class="form-control" value="<?php echo Input::get('rank')?>">
+                            <input name="rank" class="form-control" value="<?php echo !empty($data['user']->rank) ? $data['user']->rank : Input::get('rank');?>">
 
                             <span class="help-block">
                                     <?php Validator::validationError('rank') ?>
@@ -40,7 +40,7 @@ use Battleheritage\core\Input;
                         </div>
                         <div class="form-group <?php if(Validator::validationErrorExists('age')):  ?> has-error <?php endif; ?>">
                             <label for="age">Age</label>
-                            <input name="age" class="form-control" value="<?php echo Input::get('age')?>">
+                            <input name="age" class="form-control" value="<?php echo !empty($data['user']->age) ? $data['user']->age : Input::get('age');?>">
 
                             <span class="help-block">
                                     <?php Validator::validationError('age') ?>
@@ -48,7 +48,7 @@ use Battleheritage\core\Input;
                         </div>
                         <div class="form-group <?php if(Validator::validationErrorExists('weight')):  ?> has-error <?php endif; ?>">
                             <label for="weight">Weight</label>
-                            <input name="weight" class="form-control" value="<?php echo Input::get('weight')?>">
+                            <input name="weight" class="form-control" value="<?php echo !empty($data['user']->weight) ? $data['user']->weight : Input::get('weight');?>">
 
                             <span class="help-block">
                                     <?php Validator::validationError('weight') ?>
@@ -57,16 +57,34 @@ use Battleheritage\core\Input;
                         </div>
                         <div class="form-group <?php if(Validator::validationErrorExists('region')):  ?> has-error <?php endif; ?>">
                             <label for="region">Region</label>
-                            <input name="region" class="form-control" value="<?php echo Input::get('region')?>">
+                            <input name="region" class="form-control" value="<?php echo !empty($data['user']->region) ? $data['user']->region : Input::get('region');?>">
 
                             <span class="help-block">
                                     <?php Validator::validationError('region') ?>
                                 </span>
 
                         </div>
+                        <div class="form-group <?php if(Validator::validationErrorExists('quote')):  ?> has-error <?php endif; ?>">
+                            <label for="quote">Quote</label>
+                            <input name="quote" class="form-control" value="<?php echo !empty($data['user']->quote) ? $data['user']->quote : Input::get('quote');?>">
+
+                            <span class="help-block">
+                                    <?php Validator::validationError('quote') ?>
+                                </span>
+
+                        </div>
+                        <div class="form-group <?php if(Validator::validationErrorExists('about')):  ?> has-error <?php endif; ?>">
+                            <label for="about">About</label>
+                            <textarea rows="5" name="about" class="form-control" ><?php echo !empty($data['user']->about) ? $data['user']->about : Input::get('about');?></textarea>
+
+                            <span class="help-block">
+                                    <?php Validator::validationError('about') ?>
+                                </span>
+
+                        </div>
                         <div class="form-group">
-                            <label>Image</label>
-                            <input class="form-control">
+                            <label for="image">Image</label>
+                            <input type="file" name="image" class="form-control">
                         </div>
 
                         <button type="submit" name="submit" class="btn btn-success">Submit</button><br><br>

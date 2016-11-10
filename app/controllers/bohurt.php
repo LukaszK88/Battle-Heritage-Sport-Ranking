@@ -61,8 +61,8 @@ class Bohurt extends Controller
 
         $user = $this->bohurts->where('user_id',$userId)->first();
 
-        if(!$user) {
-            if (Input::exists()) {
+
+        if (Input::exists()) {
                 $validation = $this->validator->validate($_POST, AddBohurtRecord::rules());
 
                 if ($validation->fails()) {
@@ -70,42 +70,14 @@ class Bohurt extends Controller
                     // Redirect::to(Url::path().'/home/admin');
                 }
 
-                $bohurt = $this->bohurts->firstOrCreate(array(
-                    'user_id' => $userId,
-                    'fights' => Input::get('fights'),
-                    'down' => Input::get('down'),
-                    'suicide' => Input::get('suicide'),
-                    'points' => ((Input::get('fights') - Input::get('down')) - (Input::get('suicide') * 3))
-                ));
+                $bohurt = $this->bohurts->updateOrCreate(['user_id' => $userId]
+                    ,['fights' => ($user->fights + Input::get('fights')),
+                        'down' => ($user->down + Input::get('down')),
+                        'suicide' => ($user->suicide +Input::get('suicide')),
+                        'points' => ($user->points + ((Input::get('fights') - Input::get('down')) - (Input::get('suicide') * 3)))]);
 
-                $bohurt->save();
-                
-                Redirect::to(Url::path() . '/bohurt/competitions');
+                    Redirect::to(Url::path() . '/bohurt/competitions');
             }
-
-        }elseif($user) {
-            if (Input::exists()) {
-                $validation = $this->validator->validate($_POST, AddBohurtRecord::rules());
-
-                if ($validation->fails()) {
-
-                    // Redirect::to(Url::path().'/home/admin');
-                }
-
-                $bohurt = Bohurts::where('user_id',$user->user_id)->first();
-
-
-                $bohurt->fights = ($bohurt->fights + Input::get('fights'));
-                $bohurt->down   = ($bohurt->down + Input::get('down'));
-                $bohurt->suicide= ($bohurt->suicide + Input::get('suicide'));
-                $bohurt->points = ($bohurt->points + ((Input::get('fights') - Input::get('down')) - (Input::get('suicide') * 3)));
-
-                $bohurt->save();
-
-                Redirect::to(Url::path() . '/bohurt/competitions');
-
-            }
-        }
 
 
         $this->view('bohurt/addRecord');

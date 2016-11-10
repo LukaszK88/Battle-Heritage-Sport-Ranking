@@ -31,7 +31,7 @@ use Battleheritage\core\Url ;?>
                         <?php foreach ($data['triathlons'] as $triathlon) :?>
                             <tr>
                                 <td><?php echo $n++ ?></td>
-                                <td><?php echo $triathlon->users->name ?></td>
+                                <td><a href="<?php echo Url::path()?>/home/profile/<?php echo $triathlon->user_id?>"><?php echo $triathlon->users->name ?></a></td>
                                 <td><?php echo $triathlon->users->region ?></td>
                                 <td><?php echo $triathlon->win ?></td>
                                 <td><?php echo $triathlon->loss ?></td>

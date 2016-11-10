@@ -34,7 +34,7 @@ use Battleheritage\core\Url ;
                                     <?php foreach ($data['profights'] as $profight) :?>
                                     <tr>
                                         <td><?php echo $n++ ?></td>
-                                        <td><?php echo $profight->users->name ?></td>
+                                        <td><a href="<?php echo Url::path()?>/home/profile/<?php echo $profight->user_id?>"><?php echo $profight->users->name ?></a></td>
                                         <td><?php echo $profight->users->region ?></td>
                                         <td><?php echo $profight->win ?></td>
                                         <td><?php echo $profight->loss ?></td>

@@ -14,13 +14,15 @@ class AddUser{
     public static function rules(){
 
         return[
-            'name'=>v::alpha(' '),
+            'name'=>v::alpha('- '),
             'rank'=>v::alpha(),
             'age' =>v::numeric(),
             'region'=>v::alpha(' '),
-            'weight'=>v::numeric()
-            
-            
+            'weight'=>v::numeric(),
+            'quote'=>v::alpha(',. '),
+            'about'=>v::alpha(',. '),
+
+
         ];
     }
 

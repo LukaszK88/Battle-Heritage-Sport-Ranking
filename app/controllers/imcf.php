@@ -75,10 +75,8 @@ class Imcf extends Controller{
 
         $user = $this->$discipline->where('user_id',$userId)->first();
 
-        echo $user;
 
-        if(!$user) {
-            if (Input::exists()) {
+        if (Input::exists()) {
                 $validation = $this->validator->validate($_POST, AddImcfRecord::rules());
 
                 if ($validation->fails()) {
@@ -86,42 +84,15 @@ class Imcf extends Controller{
                     // Redirect::to(Url::path().'/home/admin');
                 }
 
-                $disciplin = $this->$discipline->firstOrCreate(array(
-                    'user_id' => $userId,
-                    'win' => Input::get('win'),
-                    'loss' => Input::get('loss'),
-                    'points' => (Input::get('win')*2)
-                ));
-
-                $disciplin->save();
+                $disciplin = $this->$discipline->updateOrCreate(['user_id' => $userId]
+                    ,['win' => ($user->win + Input::get('win')),
+                        'loss' => ($user->loss + Input::get('loss')),
+                        'points' => ($user->points + (Input::get('win')*2))]);
 
 
-                Redirect::to(Url::path() . '/imcf/'.$discipline);
+            Redirect::to(Url::path() . '/imcf/'.$discipline);
             }
 
-        }elseif($user) {
-            if (Input::exists()) {
-                $validation = $this->validator->validate($_POST, AddImcfRecord::rules());
-
-                if ($validation->fails()) {
-
-                    // Redirect::to(Url::path().'/home/admin');
-                }
-
-                $disciplin = $this->$discipline->where('user_id',$user->user_id)->first();
-
-
-                $disciplin->win    = ($disciplin->win + Input::get('win'));
-                $disciplin->loss   = ($disciplin->loss + Input::get('loss'));
-                $disciplin->points = ($disciplin->points + ((Input::get('win')*2)));
-
-                $disciplin->save();
-
-
-                Redirect::to(Url::path() . '/imcf/'.$discipline);
-
-            }
-        }
 
 
 

@@ -44,7 +44,7 @@ class Profight extends Controller
 
         $user = $this->profights->where('user_id',$userId)->first();
 
-        if(!$user) {
+       
             if (Input::exists()) {
                 $validation = $this->validator->validate($_POST, AddProfightRecord::rules());
 
@@ -53,45 +53,16 @@ class Profight extends Controller
                     // Redirect::to(Url::path().'/home/admin');
                 }
 
-                $profight = $this->profights->firstOrCreate(array(
-                    'user_id' => $userId,
-                    'win' => Input::get('win'),
-                    'loss' => Input::get('loss'),
-                    'ko' => Input::get('ko'),
-                    'points' => ((Input::get('win') * 2) + (Input::get('ko') * 3) + (Input::get('loss')))
-                ));
+                $profight = $this->profights->updateOrCreate(['user_id' => $userId]
+                    ,['win' =>( $user->win + Input::get('win')),
+                        'loss' =>($user->loss + Input::get('loss')), 
+                        'ko' => ($user->ko + Input::get('ko')),
+                     'points' => ($user->points + ((Input::get('win') * 2) + (Input::get('ko') * 3) + (Input::get('loss'))))]);
 
-                $profight->save();
-
-
+              
                 Redirect::to(Url::path() . '/profight/index');
             }
-
-        }elseif($user) {
-            if (Input::exists()) {
-                $validation = $this->validator->validate($_POST, AddProfightRecord::rules());
-
-                if ($validation->fails()) {
-
-                    // Redirect::to(Url::path().'/home/admin');
-                }
-
-                $profight = Profights::where('user_id',$user->user_id)->first();
-
-
-                $profight->win    = ($profight->win + Input::get('win'));
-                $profight->loss   = ($profight->loss + Input::get('loss'));
-                $profight->ko   = ($profight->ko + Input::get('ko'));
-                $profight->points = ($profight->points + ((Input::get('win') * 2) + (Input::get('ko') * 3) + (Input::get('loss'))));
-
-                $profight->save();
-
-
-                Redirect::to(Url::path() . '/profight/index');
-
-            }
-        }
-
+        
 
         $this->view('profight/addRecord');
 

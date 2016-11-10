@@ -22,11 +22,84 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="admin.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/home/admin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="376">
+              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+              <folding>
+                <element signature="e#6#88#0#PHP" expanded="true" />
+                <element signature="e#89#121#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Users.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/Users.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+              <folding>
+                <element signature="e#41#92#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/home.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="376" column="29" selection-start-line="376" selection-start-column="29" selection-end-line="376" selection-end-column="29" />
+              <folding>
+                <element signature="e#90#126#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/home/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+              <folding>
+                <element signature="e#89#118#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddUser.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Validation/InputForms/AddUser.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+              <folding>
+                <element signature="e#6#88#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/home/profile.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
+              <folding>
+                <element signature="e#6#88#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="bohurt.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/bohurt.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="835">
-              <caret line="106" column="13" selection-start-line="106" selection-start-column="13" selection-end-line="106" selection-end-column="13" />
+            <state relative-caret-position="342">
+              <caret line="72" column="57" selection-start-line="72" selection-start-column="57" selection-end-line="72" selection-end-column="79" />
               <folding>
                 <element signature="e#90#129#0#PHP" expanded="true" />
               </folding>
@@ -34,23 +107,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="competitions.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/bohurt/competitions.php">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/profight/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="triathlon.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/triathlon.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+            <state relative-caret-position="357">
+              <caret line="36" column="124" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="124" />
               <folding>
-                <element signature="e#90#126#0#PHP" expanded="true" />
+                <element signature="e#6#88#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -64,9 +127,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/core/Redirect.php" />
-        <option value="$PROJECT_DIR$/app/core/Session.php" />
-        <option value="$PROJECT_DIR$/app/core/Url.php" />
         <option value="$PROJECT_DIR$/app/core/Token.php" />
         <option value="$PROJECT_DIR$/public/index.php" />
         <option value="$PROJECT_DIR$/app/core/Controller.php" />
@@ -74,26 +134,19 @@
         <option value="$PROJECT_DIR$/app/core/Validation.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/app/Validation/Forms/AddUser.php" />
-        <option value="$PROJECT_DIR$/app/Validation/InputForms/AddUser.php" />
         <option value="$PROJECT_DIR$/app/Validation/Contracts/ValidatorInterface.php" />
         <option value="$PROJECT_DIR$/app/Middleware/ValidationErrorsMiddleware.php" />
         <option value="$PROJECT_DIR$/app/init.php" />
         <option value="$PROJECT_DIR$/app/Validation/Validator.php" />
-        <option value="$PROJECT_DIR$/app/views/home/admin.php" />
         <option value="$PROJECT_DIR$/app/views/includes/footer.php" />
         <option value="$PROJECT_DIR$/app/views/includes/head.php" />
         <option value="$PROJECT_DIR$/app/Validation/InputForms/AddBohurtRecord.php" />
         <option value="$PROJECT_DIR$/app/views/bohurt/addRecord.php" />
-        <option value="$PROJECT_DIR$/app/views/includes/navtop.php" />
-        <option value="$PROJECT_DIR$/app/views/home/index.php" />
         <option value="$PROJECT_DIR$/app/views/profight/addRecord.php" />
         <option value="$PROJECT_DIR$/app/Validation/InputForms/AddProfightRecord.php" />
         <option value="$PROJECT_DIR$/app/models/Profight.php" />
         <option value="$PROJECT_DIR$/app/models/Bohurts.php" />
         <option value="$PROJECT_DIR$/app/models/Profights.php" />
-        <option value="$PROJECT_DIR$/app/views/profight/index.php" />
-        <option value="$PROJECT_DIR$/app/controllers/bohurt.php" />
-        <option value="$PROJECT_DIR$/app/controllers/profight.php" />
         <option value="$PROJECT_DIR$/app/views/imcf/addRecord.php" />
         <option value="$PROJECT_DIR$/app/Validation/InputForms/AddImcfRecord.php" />
         <option value="$PROJECT_DIR$/app/models/Sword.php" />
@@ -103,18 +156,28 @@
         <option value="$PROJECT_DIR$/app/views/imcf/sword.php" />
         <option value="$PROJECT_DIR$/app/models/Longswords.php" />
         <option value="$PROJECT_DIR$/app/views/home/update.php" />
-        <option value="$PROJECT_DIR$/app/views/imcf/longswords.php" />
         <option value="$PROJECT_DIR$/app/models/Polearms.php" />
-        <option value="$PROJECT_DIR$/app/views/includes/navside.php" />
-        <option value="$PROJECT_DIR$/app/controllers/imcf.php" />
         <option value="$PROJECT_DIR$/app/models/Triathlons.php" />
-        <option value="$PROJECT_DIR$/app/models/Users.php" />
         <option value="$PROJECT_DIR$/app/Validation/InputForms/AddTriathlonRecord.php" />
-        <option value="$PROJECT_DIR$/app/views/imcf/polearms.php" />
-        <option value="$PROJECT_DIR$/app/views/triathlon/index.php" />
-        <option value="$PROJECT_DIR$/app/controllers/home.php" />
-        <option value="$PROJECT_DIR$/app/views/bohurt/competitions.php" />
+        <option value="$PROJECT_DIR$/app/controllers/bohurt.php" />
         <option value="$PROJECT_DIR$/app/controllers/triathlon.php" />
+        <option value="$PROJECT_DIR$/app/controllers/profight.php" />
+        <option value="$PROJECT_DIR$/app/controllers/imcf.php" />
+        <option value="$PROJECT_DIR$/app/views/profight/index.php" />
+        <option value="$PROJECT_DIR$/app/views/triathlon/index.php" />
+        <option value="$PROJECT_DIR$/app/views/imcf/swords.php" />
+        <option value="$PROJECT_DIR$/app/views/imcf/polearms.php" />
+        <option value="$PROJECT_DIR$/app/views/imcf/longswords.php" />
+        <option value="$PROJECT_DIR$/app/views/bohurt/competitions.php" />
+        <option value="$PROJECT_DIR$/public/css/sb-admin-2.css" />
+        <option value="$PROJECT_DIR$/app/views/includes/navside.php" />
+        <option value="$PROJECT_DIR$/app/views/includes/navtop.php" />
+        <option value="$PROJECT_DIR$/app/Validation/InputForms/AddUser.php" />
+        <option value="$PROJECT_DIR$/app/views/home/admin.php" />
+        <option value="$PROJECT_DIR$/app/models/Users.php" />
+        <option value="$PROJECT_DIR$/app/views/home/profile.php" />
+        <option value="$PROJECT_DIR$/app/views/home/index.php" />
+        <option value="$PROJECT_DIR$/app/controllers/home.php" />
       </list>
     </option>
   </component>
@@ -187,6 +250,38 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="battleheritage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="battleheritage" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="battleheritage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="battleheritage" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -206,10 +301,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="triathlon" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -315,28 +406,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bohurt" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="battleheritage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="battleheritage" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Validation" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -405,7 +474,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ecommerce" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/startbootstrap-shop-homepage-gh-pages" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="SearchEverywhereHistoryKey" value="users&#9;null&#9;null&#10;drop&#9;null&#9;null&#10;findPr&#9;null&#9;null" />
   </component>
@@ -488,18 +557,18 @@
       <workItem from="1477931967132" duration="11940000" />
       <workItem from="1477994121808" duration="40945000" />
       <workItem from="1478278242064" duration="27915000" />
-      <workItem from="1478536143817" duration="70165000" />
+      <workItem from="1478536143817" duration="85056000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="493464000" />
+    <option name="totallyTimeSpent" value="508355000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21669106" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21742313" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -536,40 +605,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/core/Hash.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="e#7#39#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/core/Model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/forms.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="391" column="46" selection-start-line="387" selection-start-column="39" selection-end-line="391" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/core/Validation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -671,17 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="84" column="23" selection-start-line="7" selection-start-column="0" selection-end-line="84" selection-end-column="23" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="true" />
-            <element signature="e#89#121#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/includes/head.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -694,16 +718,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Validation/InputForms/AddUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="1" selection-start-line="7" selection-start-column="0" selection-end-line="26" selection-end-column="1" />
           <folding>
             <element signature="e#6#88#0#PHP" expanded="true" />
           </folding>
@@ -731,31 +745,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/includes/navtop.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="31" column="104" selection-start-line="31" selection-start-column="104" selection-end-line="31" selection-end-column="104" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/bohurt/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="29" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -803,32 +797,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/profight/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="25" column="64" selection-start-line="25" selection-start-column="64" selection-end-line="25" selection-end-column="64" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/imcf/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/profight.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="true" />
-            <element signature="e#89#125#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -842,32 +815,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/imcf/swords.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="54" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Longswords.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
           <folding>
-            <element signature="e#6#88#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/includes/navside.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="45" column="92" selection-start-line="45" selection-start-column="92" selection-end-line="45" selection-end-column="92" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="true" />
+            <element signature="e#6#88#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -878,16 +831,6 @@
           <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
           <folding>
             <element signature="e#90#122#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/imcf/longswords.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="29" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -903,22 +846,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="53" column="1" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
-          <folding>
-            <element signature="e#41#92#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/triathlon/addRecord.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
           <folding>
-            <element signature="e#90#122#0#PHP" expanded="true" />
+            <element signature="e#90#122#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -928,27 +861,6 @@
         <state relative-caret-position="170">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/imcf.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="true" />
-            <element signature="e#90#126#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/triathlon/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -965,6 +877,47 @@
         <state relative-caret-position="289">
           <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
           <folding>
+            <element signature="e#6#88#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/profight.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="true" />
+            <element signature="e#89#125#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/triathlon.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="62" selection-end-column="82" />
+          <folding>
+            <element signature="e#90#126#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/triathlon/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="37" column="73" selection-start-line="37" selection-start-column="73" selection-end-line="37" selection-end-column="73" />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/imcf/swords.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
+          <folding>
             <element signature="e#6#88#0#PHP" expanded="true" />
           </folding>
         </state>
@@ -972,8 +925,154 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/imcf/polearms.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="29" />
+        <state relative-caret-position="136">
+          <caret line="14" column="70" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/imcf/longswords.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/bohurt/competitions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="35" column="82" selection-start-line="35" selection-start-column="82" selection-end-line="35" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/imcf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1235">
+          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="true" />
+            <element signature="e#90#126#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/profight/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="36" column="124" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="124" />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/sb-admin-2.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/sb-admin-2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/includes/navside.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/includes/navtop.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="12" column="55" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/bohurt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="72" column="57" selection-start-line="72" selection-start-column="57" selection-end-line="72" selection-end-column="79" />
+          <folding>
+            <element signature="e#90#129#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Validation/InputForms/AddUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="true" />
+            <element signature="e#89#121#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <folding>
+            <element signature="e#41#92#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+          <folding>
+            <element signature="e#89#118#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/profile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/core/Url.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
             <element signature="e#6#88#0#PHP" expanded="true" />
           </folding>
@@ -982,36 +1081,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding>
-            <element signature="e#90#126#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/bohurt.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="835">
-          <caret line="106" column="13" selection-start-line="106" selection-start-column="13" selection-end-line="106" selection-end-column="13" />
-          <folding>
-            <element signature="e#90#129#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/bohurt/competitions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/triathlon.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+        <state relative-caret-position="221">
+          <caret line="376" column="29" selection-start-line="376" selection-start-column="29" selection-end-line="376" selection-end-column="29" />
           <folding>
             <element signature="e#90#126#0#PHP" expanded="true" />
           </folding>

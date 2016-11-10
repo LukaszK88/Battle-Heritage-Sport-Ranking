@@ -17,6 +17,9 @@ class Users extends Model{
         'age',
         'weight',
         'region',
+        'quote',
+        'about',
+        'image',
         'total_points'
     ];
     

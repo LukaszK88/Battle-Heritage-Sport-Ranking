@@ -37,7 +37,7 @@ use Battleheritage\core\Url ;
                                         
                                     <tr>
                                         <td><?php echo $n++ ?></td>
-                                        <td><?php echo $bohurt->users->name ?> </td>
+                                        <td><a href="<?php echo Url::path()?>/home/profile/<?php echo $bohurt->user_id?>"><?php echo $bohurt->users->name ?></a> </td>
                                         <td><?php echo $bohurt->users->region ?></td>
                                         <td><?php echo $bohurt->fights ?></td>
                                         <td><?php echo $bohurt->down ?></td>
