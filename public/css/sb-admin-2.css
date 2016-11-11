@@ -15,6 +15,11 @@ body {
   color: #0a12d9;
 }
 
+.coa{
+  max-height: 50px;
+  max-width: 50px;
+}
+
 #wrapper {
   width: 100%;
 }

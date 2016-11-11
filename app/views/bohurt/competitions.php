@@ -13,7 +13,7 @@ use Battleheritage\core\Url ;
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Bohurt Ranking  <a href="<?php echo Url::path()?>/home/admin" class="btn btn-danger btn-sm pull-right">Add Fighter</a></h1>
+                    <h1 class="page-header">Bohurt Ranking </h1>
 
 
                             <div class="table-responsive">
@@ -38,7 +38,7 @@ use Battleheritage\core\Url ;
                                     <tr>
                                         <td><?php echo $n++ ?></td>
                                         <td><a href="<?php echo Url::path()?>/home/profile/<?php echo $bohurt->user_id?>"><?php echo $bohurt->users->name ?></a> </td>
-                                        <td><?php echo $bohurt->users->region ?></td>
+                                        <td width="9%"><img class="img-responsive" src="<?php echo $bohurt->users->region?>" alt=""></td>
                                         <td><?php echo $bohurt->fights ?></td>
                                         <td><?php echo $bohurt->down ?></td>
                                         <td><?php echo $bohurt->suicide ?></td>

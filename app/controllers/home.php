@@ -20,6 +20,8 @@ use Battleheritage\core\Session ;
 use Battleheritage\Validation\Contracts\ValidatorInterface;
 use Battleheritage\Validation\Validator;
 use Battleheritage\Validation\InputForms\AddUser;
+use Battleheritage\Validation\InputForms\RegisterUser;
+use Battleheritage\Validation\InputForms\LoginUser;
 
 use Illuminate\Support\Facades\DB;
 use Battleheritage\models\Bohurts ;
@@ -86,9 +88,7 @@ class Home extends Controller{
 
     public function index($name = ''){
 
-        $users = Users::all()->sortBy('total_points','0',true);
-
-        
+        $users = Users::where('name','!=','')->groupBy('total_points')->get();
 
         $this->view('home/index',['users'=>$users]);
 
@@ -108,64 +108,48 @@ class Home extends Controller{
 
     public function register($name = ''){
 
-        $user = $this->user;
+
         if (Input::exists()) {
-            if (Token::check(Input::get('token'))) {
-                $validate = new Validation();
-                $validation = $validate->check($_POST, array(
-                    'username' => array(
-                        'required' => true,
-                        'min' => 4,
-                        'max' => 50,
-                        'unique' => 'users',
-                        'email' => true
-                    )
-                ));
-                if ($validation->passed()) {
+            $validation = $this->validator->validate($_POST, RegisterUser::rules());
 
-                    $salt = Hash::salt(32);
+            if ($validation->fails()) {
 
-                    try {
-                        $user->create(array(
-                            'username' => Input::get('username'),
+                Redirect::to(Url::path() . '/home/register');
+            }
+
+                $salt = Hash::salt(32);
+
+                      $user = $this->user->create(array(
+                            'username' => Input::get('email'),
                             'temp_password' => Hash::md5(Input::get('username')),
                             'salt' => $salt,
-                            'joined' => date('Y-m-d H:i:s'),
-                            'role' => 1
+                            'created_at' => date('Y-m-d H:i:s'),
+                            'active' => 0
                         ));
-                        Email::sendEmail(Input::get('username'),'Your password to log in!','your password is '.Hash::md5(Input::get('username')).'');
-
-                    } catch (Exception $e) {
-                        die($e->getMessage());
-                    }
-
-                    Message::setMessage('We have sent you temporary password , check your inbox <br> Upon first login you will need to set new password','success');
-                    Redirect::to(Url::path().'/main/index');
+            
+                        $user->save();
+                       //Email::sendEmail(Input::get('username'),'Your password to log in!','your password is '.Hash::md5(Input::get('username')).'');
 
 
-                } 
-            }
+            Message::setMessage('We have sent you temporary password , check your inbox <br> Upon first login you will need to set new password','success');
+            Redirect::to(Url::path().'/home/index');
+
         }
+
     
-        $this->view('main/register');
+        $this->view('home/register');
     }
 
     public function login($name = ''){
         $user = $this->user;
 
-        if(Input::exists()){
-            if(Token::check(Input::get('token'))){
+        if (Input::exists()) {
+            $validation = $this->validator->validate($_POST, LoginUser::rules());
 
-                $validate = new Validation();
-                $validation = $validate->check($_POST,array(
-                    'username'=> array(
-                        'required'=>true,
-                        'email'   =>true
-                    ),
-                    'password'=> array(
-                        'required'=>true
-                    )));
-                if($validation->passed()){
+            if ($validation->fails()) {
+
+                Redirect::to(Url::path() . '/home/Login');
+            }
 
                     $remember= (Input::get('remember')==='on') ? true : false;
                     $login = $user->login(Input::get('username'),Input::get('password'),$remember);
@@ -183,10 +167,10 @@ class Home extends Controller{
                         Message::setMessage('Sorry we couldn\'t log you in','error') ;
                     }
                 }
-            }
-        }
+            
 
-        $this->view('main/login');
+
+        $this->view('home/login');
     }
 
     public function settings(){
@@ -362,61 +346,94 @@ class Home extends Controller{
         $this->view('home/update',['userId'=>$userId,'category'=>$category]);
     }
 
-    public function admin($id = ''){
+    public function admin($id = '',$photoupdate = ''){
 
         if(!empty($id)){
             $user = Users::where('id',$id)->first();
         }else{
             $user='';
         }
-
-        if(isset($_FILES['image']['name'])) {
-            if (!empty($_FILES['image']['name'])) {
-                $name = $_FILES['image']['name'];
-                $tmp_name = $_FILES['image']['tmp_name'];
-                $location = 'images/';
-                if (move_uploaded_file($tmp_name, $location . $name)) {
-
-                    Message::setMessage('Photo uploaded','success');
-                }else{
-                    Message::setMessage('couldnt upload photo','error');
-                }
-            }else{
-                Message::setMessage('Image empty','error');
-            }
-        }else{
-            Message::setMessage('Image not set','error');
-        }
-
-                    if(Input::exists()) {
+        
+        
+        
+        if(Input::exists()) {
             $validation = $this->validator->validate($_POST, AddUser::rules());
 
             if ($validation->fails()) {
-                if(!empty($id)){
-                    Redirect::to(Url::path().'/home/admin/'.$id);
+                if (!empty($id)) {
+                    Redirect::to(Url::path() . '/home/admin/' . $id);
                 }
 
-                 Redirect::to(Url::path().'/home/admin');
+                Redirect::to(Url::path() . '/home/admin');
             }
+
+
+            //Input::uploadPhoto('coa');
 
             $user = $this->user->updateOrCreate(['id' => $id],
                 ['name' => Input::get('name'),
-                'age' => Input::get('age'),
-                'rank' => Input::get('rank'),
-                'weight' => Input::get('weight'),
-                'region' => Input::get('region'),
-                'quote' => Input::get('quote'),
-                'about' => Input::get('about'), 
-                    'image'=> Url::path().'/images/'.$_FILES['image']['name']
+                    'age' => Input::get('age'),
+                    'rank' => Input::get('rank'),
+                    'weight' => Input::get('weight'),
+                    'region' => Url::path() . '/images/' .Input::get('region').'.png',
+                    'quote' => Input::get('quote'),
+                    'about' => Input::get('about')
+                ]);
 
-            ]);
+            Message::setMessage('Fighter added','success');
 
-            Redirect::to(Url::path().'/home/index');
+            Redirect::to(Url::path() . '/home/index');
+        }
+
+        $this->view('home/admin',['user'=>$user]);
+    }
+
+    public function photo($id = '',$photoupdate = ''){
+
+
+        $user = Users::where('id',$id)->first();
+
+        if(Input::exists()) {
+            if ($photoupdate == 'profilePhoto') {
+                Input::uploadPhoto('image');
+
+                $user = $this->user->updateOrCreate(['id' => $id], [
+                    'image' => Url::path() . '/images/' . $_FILES['image']['name']]);
+
+                //Message::setMessage('Profile photo uploaded','success');
+
+                Redirect::to(Url::path() . '/home/profile/' . $id);
+
+            }elseif ($photoupdate == 'coaPhoto'){
+                Input::uploadPhoto('coa');
+
+                $user = $this->user->updateOrCreate(['id' => $id], [
+                    'coa' => Url::path() . '/images/' . $_FILES['coa']['name']]);
+
+                Message::setMessage('Coat of arms uploaded','success');
+
+                Redirect::to(Url::path() . '/home/profile/' . $id);
+
+            }
         }
 
 
+        $this->view('home/photo',['user'=>$user, 'photoUpdate'=>$photoupdate]);
 
-        $this->view('home/admin',['user'=>$user]);
+    }
+
+    public function delete($id = ''){
+
+
+        Users::where('id',$id)->delete();
+
+        Message::setMessage('Fighter deleted','success');
+
+        Redirect::to(Url::path() . '/home/index');
+
+        
+        $this->view('home/delete');
+
     }
     
 }

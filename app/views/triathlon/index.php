@@ -32,7 +32,7 @@ use Battleheritage\core\Url ;?>
                             <tr>
                                 <td><?php echo $n++ ?></td>
                                 <td><a href="<?php echo Url::path()?>/home/profile/<?php echo $triathlon->user_id?>"><?php echo $triathlon->users->name ?></a></td>
-                                <td><?php echo $triathlon->users->region ?></td>
+                                <td width="9%"><img class="img-responsive" src="<?php echo $triathlon->users->region?>" alt=""></td>
                                 <td><?php echo $triathlon->win ?></td>
                                 <td><?php echo $triathlon->loss ?></td>
                                 <td><?php echo $triathlon->points ?></td>

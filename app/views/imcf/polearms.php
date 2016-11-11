@@ -33,7 +33,7 @@ use Battleheritage\core\Url ;
                             <tr>
                                 <td><?php echo $n++ ?></td>
                                 <td><a href="<?php echo Url::path()?>/home/profile/<?php echo $polearm->user_id?>"><?php echo $polearm->users->name ?></a></td>
-                                <td><?php echo $polearm->users->region ?></td>
+                                <td width="9%"><img class="img-responsive" src="<?php echo $polearm->users->region?>" alt=""></td>
                                 <td><?php echo $polearm->win ?></td>
                                 <td><?php echo $polearm->loss ?></td>
                                 <td><?php echo $polearm->points ?></td>

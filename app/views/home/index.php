@@ -37,11 +37,12 @@ use Battleheritage\core\Message ;
 
                                         <td><?php echo $n++  ?></td>
                                         <td><a href="<?php echo Url::path()?>/home/profile/<?php echo $user->id?>"><?php echo $user->name?></a></td>
-                                        <td><?php echo $user->region?></td>
+                                        <td width="9%"><img class="img-responsive" src="<?php echo $user->region?>" alt=""></td>
                                         <th><?php echo $user->rank?></th>
-                                        <td>img</td>
+                                        <td width="7%"><img class="img-responsive coa" src="<?php echo $user->coa?>" alt=""></td>
                                         <td><?php echo $user->total_points?></td>
                                         <td><a href="<?php echo Url::path()?>/home/update/<?php echo $user->id?>" class="btn btn-success btn-sm">update</a></td>
+                                        <td width="3%"><a href="<?php echo Url::path()?>/home/delete/<?php echo $user->id?>" class="btn btn-danger btn-sm">x</a></td>
                                     </tr>
                                     <?php endforeach; ?>
                                     </tbody>

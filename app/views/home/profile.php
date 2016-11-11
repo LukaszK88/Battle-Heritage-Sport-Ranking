@@ -6,6 +6,7 @@
  * Time: 15:31
  */
 use Battleheritage\core\Url ;
+use Battleheritage\core\Message ;
 ?>
 <!-- Page Content -->
     <div id="page-wrapper">
@@ -13,10 +14,14 @@ use Battleheritage\core\Url ;
             <div class="row">
 
                     <div class="col-md-4">
-                        <img class="img-responsive" src="<?php echo $data['user']->image ?>" alt="">
+                        <?php if (empty($data['user']->image)) : ?>
+                            <a href="<?php echo Url::path()?>/home/photo/<?php echo $data['user']->id?>/profilePhoto" class="btn btn-success btn-sm">Upload Photo</a>
+                        <?php else :?>
+                            <a href="<?php echo Url::path()?>/home/photo/<?php echo $data['user']->id?>/profilePhoto"><img class="img-responsive" src="<?php echo $data['user']->image ?>" alt=""></a>
+                        <?php endif;?>
                     </div>
                 <div class="col-md-5">
-
+                    <?php Message::displayMessage(); ?>
                     <div class="well">
 
                             <h4 class="pull-right"><?php echo $data['user']->rank ?></h4>
@@ -29,8 +34,9 @@ use Battleheritage\core\Url ;
                                 <h4>Stats:</h4>
                                 Age: <?php echo $data['user']->age ?><br>
                                 Weight:<?php echo $data['user']->weight ?><br>
-                                Region:<?php echo $data['user']->region ?><br>
                                 Total Points:<?php echo $data['user']->total_points ?><br>
+                                Region:<img class="img-responsive" src="<?php echo $data['user']->region ?>" alt=""><br>
+
                             </div>
                             <div class="col-md-6">
                             <h4>Fights Record:</h4>
@@ -54,6 +60,14 @@ use Battleheritage\core\Url ;
 
                     </div>
 
+                </div>
+
+                <div class="col-md-3">
+                    <?php if (empty($data['user']->coa)) : ?>
+                        <a href="<?php echo Url::path()?>/home/photo/<?php echo $data['user']->id?>/coaPhoto" class="btn btn-success btn-sm">Upload Coat of arms</a>
+                    <?php else :?>
+                        <a href="<?php echo Url::path()?>/home/photo/<?php echo $data['user']->id?>/coaPhoto"> <img class="img-responsive" src="<?php echo $data['user']->coa ?>" alt=""></a>
+                    <?php endif;?>
                 </div>
 
             </div>

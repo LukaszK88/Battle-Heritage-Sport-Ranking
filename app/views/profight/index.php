@@ -35,7 +35,7 @@ use Battleheritage\core\Url ;
                                     <tr>
                                         <td><?php echo $n++ ?></td>
                                         <td><a href="<?php echo Url::path()?>/home/profile/<?php echo $profight->user_id?>"><?php echo $profight->users->name ?></a></td>
-                                        <td><?php echo $profight->users->region ?></td>
+                                        <td width="9%"><img class="img-responsive" src="<?php echo $profight->users->region?>" alt=""></td>
                                         <td><?php echo $profight->win ?></td>
                                         <td><?php echo $profight->loss ?></td>
                                         <td><?php echo $profight->ko ?></td>

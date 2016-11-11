@@ -22,7 +22,6 @@ class AddUser{
             'quote'=>v::alpha(',. '),
             'about'=>v::alpha(',. '),
 
-
         ];
     }
 

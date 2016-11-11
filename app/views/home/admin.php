@@ -20,6 +20,7 @@ use Battleheritage\core\Input;
                     <?php Message::displayMessage(); ?>
                     <h2>Add Fighter</h2>
                     <form action="" method="post" enctype="multipart/form-data">
+
                         <div class="form-group <?php if(Validator::validationErrorExists('name')):  ?> has-error <?php endif; ?> ">
                             <label for="name">Name</label>
                             <input name="name" class="form-control" value="<?php echo !empty($data['user']->name) ? $data['user']->name : Input::get('name');?>">
@@ -56,8 +57,15 @@ use Battleheritage\core\Input;
 
                         </div>
                         <div class="form-group <?php if(Validator::validationErrorExists('region')):  ?> has-error <?php endif; ?>">
-                            <label for="region">Region</label>
-                            <input name="region" class="form-control" value="<?php echo !empty($data['user']->region) ? $data['user']->region : Input::get('region');?>">
+
+                                <label for="region">Region:</label><br>
+                                <select name="region" class="form-control" >
+                                    <option >South East</option>
+                                    <option >Mercia</option>
+                                    <option >North</option>
+                                    <option >Wales</option>
+                                    <option >North</option>
+                                </select>
 
                             <span class="help-block">
                                     <?php Validator::validationError('region') ?>
@@ -80,11 +88,6 @@ use Battleheritage\core\Input;
                             <span class="help-block">
                                     <?php Validator::validationError('about') ?>
                                 </span>
-
-                        </div>
-                        <div class="form-group">
-                            <label for="image">Image</label>
-                            <input type="file" name="image" class="form-control">
                         </div>
 
                         <button type="submit" name="submit" class="btn btn-success">Submit</button><br><br>

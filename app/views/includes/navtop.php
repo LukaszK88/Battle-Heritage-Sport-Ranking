@@ -23,6 +23,11 @@ use Battleheritage\core\Url ;
         <!-- /.navbar-header -->
 
         <ul class="nav navbar-top-links navbar-right">
+            <li><a href="<?php echo Url::path()?>/home/register"><i class="fa fa-user fa-fw"></i> Register</a>
+            </li>
+            <li><a href="<?php echo Url::path()?>/home/login"><i class="fa fa-user fa-fw"></i> Log in</a>
+            </li>
+
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
