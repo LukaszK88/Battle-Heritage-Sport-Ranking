@@ -50,27 +50,24 @@ class Home extends Controller{
 
     public function index($name = ''){
 
-        if($this->user->isLoggedIn() and $this->user->hasPermission('admin')){
-            echo 'admin';
-        }
-
- 
-
         $users = $this->user->selectUsers();
 
-        $this->view('home/index',['users'=>$users]);
+        $this->view('home/index',['users'=>$users,'user'=>$this->user]);
 
     }
 
     public function profile($userId = ''){
+
 
         $user = $this->user->selectUser($userId);
         if(!$user){
             Redirect::to(Url::path().'/home/index');
         }
 
+        $stats = Users::find($userId);
+     
 
-        $this->view('home/profile',['user'=>$user]);
+        $this->view('home/profile',['user'=>$user,'stats'=>$stats]);
 
     }
 
@@ -314,7 +311,7 @@ class Home extends Controller{
 
             //Input::uploadPhoto('coa');
 
-            $user = $this->user->updateOrCreate(['id' => $id],
+            $user = $this->user->updateOrCreate(['id' => $this->user->data()->id],
                 ['name' => Input::get('name'),
                     'age' => Input::get('age'),
                     'rank' => Input::get('rank'),

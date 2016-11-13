@@ -21,13 +21,14 @@ use Battleheritage\Validation\InputForms\AddTriathlonRecord;
 
 class Triathlon extends Controller{
 
-    protected   $user,
+    protected   $users,
                 $triathlons,
                 $validator;
 
 
     public function __construct(){
-
+        
+        $this->users = new Users();
         $this->validator = new Validator();
         $this->triathlons= new Triathlons();
         
@@ -62,8 +63,14 @@ class Triathlon extends Controller{
                             'loss' => ($user->loss + Input::get('loss')),
                             'points' => ($user->points + (Input::get('win')*2))]);
 
-                    
-                    Redirect::to(Url::path() . '/triathlon/index');
+            $user = $this->users->where('id',$userId)->first();
+
+            $this->users->updateOrCreate(['id' => $userId],
+                ['total_points' => ($user->total_points + ((Input::get('win')*2)))]);
+
+
+
+            Redirect::to(Url::path() . '/triathlon/index');
                 }
 
 

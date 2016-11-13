@@ -59,7 +59,13 @@ class Profight extends Controller
                         'ko' => ($user->ko + Input::get('ko')),
                      'points' => ($user->points + ((Input::get('win') * 2) + (Input::get('ko') * 3) + (Input::get('loss'))))]);
 
-              
+                $user = $this->user->where('id',$userId)->first();
+
+                $this->user->updateOrCreate(['id' => $userId],
+                    ['total_points' => ($user->total_points + ((Input::get('win') * 2) + (Input::get('ko') * 3) + (Input::get('loss'))))]);
+
+
+
                 Redirect::to(Url::path() . '/profight/index');
             }
         

@@ -7,6 +7,7 @@
  */
 use Battleheritage\core\Url ;
 use Battleheritage\core\Message ;
+use Battleheritage\core\Session ;
 ?>
 <!-- Page Content -->
     <div id="page-wrapper">
@@ -14,10 +15,19 @@ use Battleheritage\core\Message ;
             <div class="row">
 
                     <div class="col-md-4">
+
                         <?php if (empty($data['user']->image)) : ?>
-                            <a href="<?php echo Url::path()?>/home/photo/<?php echo $data['user']->id?>/profilePhoto" class="btn btn-success btn-sm">Upload Photo</a>
+                            <?php if (Session::exists('user') and ($data['user']->id == Session::get('user'))): ?>
+                                <a href="<?php echo Url::path()?>/home/photo/<?php echo $data['user']->id?>/profilePhoto" class="btn btn-success btn-sm">Upload Photo</a>
+                            <?php endif; ?>
                         <?php else :?>
-                            <a href="<?php echo Url::path()?>/home/photo/<?php echo $data['user']->id?>/profilePhoto"><img class="img-responsive" src="<?php echo $data['user']->image ?>" alt=""></a>
+                            <?php if (Session::exists('user') and ($data['user']->id == Session::get('user'))): ?>
+                            <a href="<?php echo Url::path()?>/home/photo/<?php echo $data['user']->id?>/profilePhoto">
+                                <img class="img-responsive" src="<?php echo $data['user']->image ?>" alt="">
+                            </a>
+                                <?php else: ?>
+                                <img class="img-responsive" src="<?php echo $data['user']->image ?>" alt="">
+                                <?php endif;?>
                         <?php endif;?>
                     </div>
                 <div class="col-md-5">
@@ -25,37 +35,42 @@ use Battleheritage\core\Message ;
                     <div class="well">
 
                             <h4 class="pull-right"><?php echo $data['user']->rank ?></h4>
-                            <h3><a href="#"><?php echo $data['user']->name ?></a> <a href="<?php echo Url::path()?>/home/admin/<?php echo $data['user']->id?>" class="btn btn-success btn-sm">Update info</a> </h3>
+
+                            <h3><?php echo $data['user']->name ?>
+                                <?php if (Session::exists('user') and ($data['user']->id == Session::get('user'))): ?>
+                                <a href="<?php echo Url::path()?>/home/admin/<?php echo $data['user']->id?>" class="btn btn-success btn-sm">Update info</a>
+                                <?php endif; ?>
+                            </h3>
 
                         <hr>
 
                         <div class="row">
                             <div class="col-md-6">
-                                <h4>Stats:</h4>
+                                <h4><strong>Stats:</strong></h4>
                                 Age: <?php echo $data['user']->age ?><br>
-                                Weight:<?php echo $data['user']->weight ?><br>
-                                Total Points:<?php echo $data['user']->total_points ?><br>
+                                Weight: <?php echo $data['user']->weight ?><br>
+                                Total Points: <?php echo $data['user']->total_points ?><br>
                                 Region:<img class="img-responsive" src="<?php echo $data['user']->region ?>" alt=""><br>
 
                             </div>
                             <div class="col-md-6">
-                            <h4>Fights Record:</h4>
-                                Bohurt Fights:<?php echo !empty($data['user']->bohurts->fights) ? $data['user']->bohurts->fights : 0 ; ?><br>
-                                Sword and Shield Fights:<?php echo !empty($data['user']->swords->win) ? $data['user']->swords->win: 0 ; ?><br>
-                                Longsword Fights:<?php echo !empty($data['user']->longswords->win) ? $data['user']->longswords->win: 0 ;?><br>
-                                Polearm Fights:<?php echo !empty($data['user']->polearms->win) ? $data['user']->polearms->win: 0 ; ?><br>
-                                Triathlon Fights:<?php echo !empty($data['user']->triathlons->win) ? $data['user']->triathlons->win: 0 ; ?><br>
-                                Profights Fights:<?php echo !empty($data['user']->profights->win) ? $data['user']->profights->win : 0 ;?>  KO <?php echo !empty($data['user']->profights->ko) ? $data['user']->profights->ko : 0 ;?><br>
+                            <h4><strong>Fights Record: </strong></h4>
+                                Bohurt Fights: <?php echo !empty($data['stats']->bohurts->fights) ? $data['stats']->bohurts->fights : 0 ; ?><br>
+                                Sword and Shield Fights: <?php echo !empty($data['stats']->swords->win) ? $data['stats']->swords->win: 0 ; ?><br>
+                                Longsword Fights: <?php echo !empty($data['stats']->longswords->win) ? $data['stats']->longswords->win: 0 ;?><br>
+                                Polearm Fights: <?php echo !empty($data['stats']->polearms->win) ? $data['stats']->polearms->win: 0 ; ?><br>
+                                Triathlon Fights: <?php echo !empty($data['stats']->triathlons->win) ? $data['stats']->triathlons->win: 0 ; ?><br>
+                                Profights Fights: <?php echo !empty($data['stats']->profights->win) ? $data['stats']->profights->win : 0 ;?>  KO <?php echo !empty($data['user']->profights->ko) ? $data['user']->profights->ko : 0 ;?><br>
                             </div>
                         </div>
 
                         <hr>
 
-                        <h4>Favourite quote:</h4>
+                        <h4><strong>Favourite quote:</strong></h4>
                         <p>"<?php echo $data['user']->quote ?>"</p>
 
 
-                        <h4>About:</h4>
+                        <h4><strong>About:</strong></h4>
                         <p><?php echo $data['user']->about ?></p>
 
                     </div>
@@ -64,9 +79,15 @@ use Battleheritage\core\Message ;
 
                 <div class="col-md-3">
                     <?php if (empty($data['user']->coa)) : ?>
+                        <?php if (Session::exists('user') and ($data['user']->id == Session::get('user'))): ?>
                         <a href="<?php echo Url::path()?>/home/photo/<?php echo $data['user']->id?>/coaPhoto" class="btn btn-success btn-sm">Upload Coat of arms</a>
+                            <?php endif; ?>
                     <?php else :?>
+                        <?php if (Session::exists('user') and ($data['user']->id == Session::get('user'))): ?>
                         <a href="<?php echo Url::path()?>/home/photo/<?php echo $data['user']->id?>/coaPhoto"> <img class="img-responsive" src="<?php echo $data['user']->coa ?>" alt=""></a>
+                            <?php else:?>
+                            <img class="img-responsive" src="<?php echo $data['user']->coa ?>" alt="">
+                            <?php endif; ?>
                     <?php endif;?>
                 </div>
 

@@ -1,5 +1,6 @@
 <?php
 use Battleheritage\core\App ;
+use Battleheritage\core\config ;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 
@@ -16,11 +17,11 @@ $dotenv->load();
 $capsule = new Capsule;
 $capsule->addConnection([
     'driver'    => 'mysql',
-    'host'      => '127.0.0.1',
+    'host'      => getenv('DB_HOST'),
     'Validation'  => 'battleheritage',
-    'database'  =>'battleheritage',
-    'username'  => 'root',
-    'password'  => '',
+    'database'  => getenv('DB_DB'),
+    'username'  => getenv('DB_USERNAME'),
+    'password'  => getenv('DB_PASSWORD'),
     'charset'   => 'utf8',
     'collation' => 'utf8_unicode_ci',
     'prefix'    => '',

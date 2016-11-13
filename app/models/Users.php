@@ -49,21 +49,21 @@ class Users extends Model{
             if(Session::exists($this->_sessionName)){
                 $user = Session::get($this->_sessionName);
 
-                if($this->find($user)){
+                if($this->findUser($user)){
                     $this->_isLoggedIn = true;
                 }else{
                     //log out
                 }
             }
         }else{
-            $this->find($user);
+            $this->findUser($user);
         }
 
 
     }
 
 
-    public function find($user=null){
+    public function findUser($user=null){
         if($user){
             $field=(is_numeric($user)) ? 'id':'username';
 
@@ -81,7 +81,7 @@ class Users extends Model{
         if(!$username and !$password and $this->exists()){
             Session::put($this->_sessionName,$this->data()->id);
         }else {
-            $user = $this->find($username);
+            $user = $this->findUser($username);
 
             if ($user) {
                 if (($this->data()->password === Hash::make($password, $this->data()->salt)) or ($this->data()->temp_password === $password)) {
@@ -136,7 +136,7 @@ class Users extends Model{
     }
 
     public function selectUsers(){
-        $users = DB::table('users')->where('name','!=','')->get();
+        $users = DB::table('users')->where('name','!=','')->orderBy('total_points','dsc')->get();
 
         return $users;
     }

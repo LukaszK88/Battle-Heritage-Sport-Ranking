@@ -87,7 +87,13 @@ class Imcf extends Controller{
                 $disciplin = $this->$discipline->updateOrCreate(['user_id' => $userId]
                     ,['win' => ($user->win + Input::get('win')),
                         'loss' => ($user->loss + Input::get('loss')),
-                        'points' => ($user->points + (Input::get('win')*2))]);
+                        'points' => ($user->points + (Input::get('win')*1))]);
+
+            $user = $this->user->where('id',$userId)->first();
+
+            $this->user->updateOrCreate(['id' => $userId],
+                ['total_points' => ($user->total_points + ((Input::get('win')*1)))]);
+
 
 
             Redirect::to(Url::path() . '/imcf/'.$discipline);

@@ -15,7 +15,11 @@ use Battleheritage\core\Message ;
             <div class="row">
                 <div class="col-lg-12">
                     <?php Message::displayMessage(); ?>
-                    <h1 class="page-header">Overall Ranking <a href="<?php echo Url::path()?>/home/admin" class="btn btn-danger btn-sm pull-right">Add Fighter</a></h1>
+                    <h1 class="page-header">Overall Ranking
+
+
+
+                    </h1>
 
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
@@ -27,7 +31,9 @@ use Battleheritage\core\Message ;
                                         <th>Rank</th>
                                         <th>CoA</th>
                                         <th width="5%">Total Points</th>
+                                        <?php if($data['user']->isLoggedIn() and $data['user']->hasPermission('admin')): ?>
                                         <th width="5%">Update</th>
+                                        <?php endif; ?>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -41,8 +47,10 @@ use Battleheritage\core\Message ;
                                         <th><?php echo $user->rank?></th>
                                         <td width="7%"><img class="img-responsive coa" src="<?php echo $user->coa?>" alt=""></td>
                                         <td><?php echo $user->total_points?></td>
+                                        <?php if($data['user']->isLoggedIn() and $data['user']->hasPermission('admin')): ?>
                                         <td><a href="<?php echo Url::path()?>/home/update/<?php echo $user->id?>" class="btn btn-success btn-sm">update</a></td>
                                         <td width="3%"><a href="<?php echo Url::path()?>/home/delete/<?php echo $user->id?>" class="btn btn-danger btn-sm">x</a></td>
+                                        <?php endif; ?>
                                     </tr>
                                     <?php endforeach; ?>
                                     </tbody>

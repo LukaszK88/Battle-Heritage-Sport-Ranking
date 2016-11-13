@@ -16,7 +16,6 @@ use Battleheritage\core\Input;
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Log in</h3>
-                        <?php Message::displayMessage() ?>
                     </div>
                     <div class="panel-body">
                         <form action="" method="post">
@@ -40,7 +39,7 @@ use Battleheritage\core\Input;
 
                                 <div class="checkbox">
                                     <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                        <input name="remember" type="checkbox" value="on">Remember Me
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->

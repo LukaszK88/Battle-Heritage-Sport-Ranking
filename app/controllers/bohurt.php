@@ -53,6 +53,7 @@ class Bohurt extends Controller
       $bohurts =  Bohurts::all()->sortBy('points','0',true);
         
         
+        
         $this->view('bohurt/competitions',['bohurt'=>$bohurts]);
 
     }
@@ -60,7 +61,6 @@ class Bohurt extends Controller
     public function addRecord($userId = ''){
 
         $user = $this->bohurts->where('user_id',$userId)->first();
-
 
         if (Input::exists()) {
                 $validation = $this->validator->validate($_POST, AddBohurtRecord::rules());
@@ -75,6 +75,13 @@ class Bohurt extends Controller
                         'down' => ($user->down + Input::get('down')),
                         'suicide' => ($user->suicide +Input::get('suicide')),
                         'points' => ($user->points + ((Input::get('fights') - Input::get('down')) - (Input::get('suicide') * 3)))]);
+
+
+            $user = $this->users->where('id',$userId)->first();
+
+                $this->users->updateOrCreate(['id' => $userId],
+                        ['total_points' => ($user->total_points + ((Input::get('fights') - Input::get('down')) - (Input::get('suicide') * 3)))]);
+
 
                     Redirect::to(Url::path() . '/bohurt/competitions');
             }
