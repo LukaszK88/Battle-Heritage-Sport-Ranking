@@ -16,6 +16,7 @@ use Battleheritage\core\Input;
             <div class="login-panel panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Register</h3>
+                    <?php Message::displayMessage() ?>
                 </div>
                 <div class="panel-body">
                     <form action="" method="post">

@@ -36,10 +36,10 @@ use Battleheritage\core\Url ;
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="<?php echo Url::path()?>/home/admin"><i class="fa fa-user fa-fw"></i> Admin</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    <li><a href="<?php echo Url::path()?>/home/settings"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a href="<?php echo Url::path()?>/home/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->

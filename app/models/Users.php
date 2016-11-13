@@ -2,13 +2,15 @@
 
 namespace Battleheritage\models;
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\Capsule\Manager as DB;
 
 use Illuminate\Database\Eloquent\Model;
 use Battleheritage\models\Bohurts;
 
 use Battleheritage\core\Session ;
-
+use Battleheritage\core\config ;
+use Battleheritage\core\Hash ;
+use Battleheritage\core\Cookie ;
 
 class Users extends Model{
 
@@ -30,6 +32,50 @@ class Users extends Model{
         'total_points'
     ];
 
+    protected
+        $_data,
+        $_sessionName,
+        $_cookieName,
+        $_isLoggedIn;
+
+    public function __construct($user = null){
+        parent::__construct();
+
+
+        $this->_sessionName = config::get('session/session_name');
+        $this->_cookieName = config::get('remember/cookie_name');
+
+        if(!$user){
+            if(Session::exists($this->_sessionName)){
+                $user = Session::get($this->_sessionName);
+
+                if($this->find($user)){
+                    $this->_isLoggedIn = true;
+                }else{
+                    //log out
+                }
+            }
+        }else{
+            $this->find($user);
+        }
+
+
+    }
+
+
+    public function find($user=null){
+        if($user){
+            $field=(is_numeric($user)) ? 'id':'username';
+
+            $data = DB::table('users')->where($field,'=',$user)->get();
+
+            if($data->count()){
+                $this->_data = $data->first();
+                return true;
+            }
+        }
+    }
+
     public function login($username=null,$password=null,$remember=false){
 
         if(!$username and !$password and $this->exists()){
@@ -45,14 +91,13 @@ class Users extends Model{
                     }
                     if ($remember) {
                         $hash = Hash::unique();
-                        $hashCheck = $this->_db->get('user_sessions', array('user_id', '=', $this->data()->id));
+                        $hashCheck = DB::table('user_sessions')->where('user_id',$this->data()->id)->get();
 
                         if (!$hashCheck->count()) {
-                            $this->_db->insert('user_sessions', array(
+                            DB::table('user_sessions')->insert([
                                 'user_id' => $this->data()->id,
                                 'hash' => $hash
-
-                            ));
+                            ]);
                         } else {
                             $hash = $hashCheck->first()->hash;
                         }
@@ -62,6 +107,61 @@ class Users extends Model{
                 }
             }
         }
+    }
+
+
+    public function hasPermission($key){
+        $group = DB::table('groups')->where('id',$this->data()->role)->get();
+
+       
+        if($group->count()){
+            $permissions= json_decode($group->first()->permission,true);
+
+            if($permissions[$key]==true) {
+                return true;
+
+            }
+        }
+        return false;
+    }
+
+
+
+    public function exists(){
+        return(!empty($this->_data)) ?true : false;
+    }
+
+    public function data(){
+        return $this->_data;
+    }
+
+    public function selectUsers(){
+        $users = DB::table('users')->where('name','!=','')->get();
+
+        return $users;
+    }
+
+    public function selectUser($userId){
+        $user = DB::table('users')->where('id',$userId)->first();
+
+        return $user;
+
+    }
+
+    public function logout(){
+        DB::table('user_sessions')->where('user_id',$this->data()->id)->delete();
+
+        Session::delete($this->_sessionName);
+        Session::delete('username');
+        Session::delete('default');
+        Session::delete('admin');
+        Cookie::delete($this->_cookieName);
+    }
+
+
+
+    public function isLoggedIn(){
+        return $this->_isLoggedIn;
     }
   
     public function bohurts(){

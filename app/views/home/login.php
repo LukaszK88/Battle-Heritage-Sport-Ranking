@@ -16,6 +16,7 @@ use Battleheritage\core\Input;
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Log in</h3>
+                        <?php Message::displayMessage() ?>
                     </div>
                     <div class="panel-body">
                         <form action="" method="post">
@@ -43,7 +44,7 @@ use Battleheritage\core\Input;
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <input type="submit" value="Register" class="btn btn-lg btn-success btn-block">
+                                <input type="submit" value="Log in" class="btn btn-lg btn-success btn-block">
                             </fieldset>
                         </form>
                     </div>
