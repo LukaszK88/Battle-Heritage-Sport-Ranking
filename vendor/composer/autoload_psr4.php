@@ -11,7 +11,7 @@ return array(
     'Respect\\Validation\\' => array($vendorDir . '/respect/validation/library'),
     'KennedyTedesco\\Validation\\' => array($vendorDir . '/kennedytedesco/validation/src/Validation'),
     'Illuminate\\Support\\' => array($vendorDir . '/illuminate/support'),
-    'Illuminate\\Database\\' => array($vendorDir . '/illuminate/Validation'),
+    'Illuminate\\Database\\' => array($vendorDir . '/illuminate/database'),
     'Illuminate\\Contracts\\' => array($vendorDir . '/illuminate/contracts'),
     'Illuminate\\Container\\' => array($vendorDir . '/illuminate/container'),
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),

@@ -19,8 +19,8 @@ class AddUser{
             'age' =>v::numeric(),
             'region'=>v::alpha(' '),
             'weight'=>v::numeric(),
-            'quote'=>v::alpha(',. '),
-            'about'=>v::alpha(',. '),
+            'quote'=>v::optional(v::alpha(',. ')),
+            'about'=>v::optional(v::alpha(',. ')),
 
         ];
     }

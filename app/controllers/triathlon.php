@@ -41,7 +41,7 @@ class Triathlon extends Controller{
         $triathlons = Triathlons::all()->sortBy('points','0',true);
 
 
-        $this->view('triathlon/index',['triathlons'=>$triathlons]);
+        $this->view('triathlon/index',['triathlons'=>$triathlons,'user'=>$this->users]);
 
     }
     

@@ -17,6 +17,7 @@ use Battleheritage\core\Redirect ;
 use Battleheritage\core\Url ;
 use Battleheritage\core\Session ;
 
+
 use Battleheritage\Validation\Contracts\ValidatorInterface;
 use Battleheritage\Validation\Validator;
 use Battleheritage\Validation\InputForms\AddUser;
@@ -82,7 +83,7 @@ class Home extends Controller{
                 Redirect::to(Url::path() . '/home/register');
             }
 
-                if($this->user->find(Input::get('email'))){
+                if($this->user->findUser(Input::get('email'))){
                     Message::setMessage('Username already exists','error') ;
                 }else {
 
@@ -91,12 +92,12 @@ class Home extends Controller{
 
                     $this->user->updateOrCreate(['id' => 0],
                         ['username' => Input::get('email'),
-                            'temp_password' => Hash::md5(Input::get('username')),
+                            'temp_password' => Hash::md5(Input::get('email')),
                             'salt' => $salt
                         ]);
 
 
-                    //Email::sendEmail(Input::get('username'),'Your password to log in!','your password is '.Hash::md5(Input::get('username')).'');
+                   Email::sendEmail(Input::get('email'),'Your password to log in!','your password is '.Hash::md5(Input::get('email')).'');
 
 
                     Message::setMessage('We have sent you temporary password , check your inbox <br> Upon first login you will need to set new password', 'success');

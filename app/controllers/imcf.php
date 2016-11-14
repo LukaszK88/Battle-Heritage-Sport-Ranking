@@ -50,7 +50,7 @@ class Imcf extends Controller{
 
         $swords = Swords::all()->sortBy('points','0',true);
 
-        $this->view('imcf/swords',['swords'=>$swords]);
+        $this->view('imcf/swords',['swords'=>$swords,'user'=>$this->user]);
 
     }
 
@@ -58,7 +58,7 @@ class Imcf extends Controller{
 
         $longswords = Longswords::all()->sortBy('points','0',true);
 
-        $this->view('imcf/longswords',['longswords'=>$longswords]);
+        $this->view('imcf/longswords',['longswords'=>$longswords,'user'=>$this->user]);
 
     }
 
@@ -66,7 +66,7 @@ class Imcf extends Controller{
 
         $polearms = Polearms::all()->sortBy('points','0',true);
 
-        $this->view('imcf/polearms',['polearms'=>$polearms]);
+        $this->view('imcf/polearms',['polearms'=>$polearms,'user'=>$this->user]);
 
     }
 

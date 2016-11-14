@@ -36,7 +36,7 @@ class Profight extends Controller
 
         $profights = Profights::all()->sortBy('points','0',true);
 
-        $this->view('profight/index',['profights'=>$profights]);
+        $this->view('profight/index',['profights'=>$profights,'user'=>$this->user]);
 
     }
 

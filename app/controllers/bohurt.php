@@ -54,7 +54,7 @@ class Bohurt extends Controller
         
         
         
-        $this->view('bohurt/competitions',['bohurt'=>$bohurts]);
+        $this->view('bohurt/competitions',['bohurt'=>$bohurts,'user'=>$this->users]);
 
     }
 

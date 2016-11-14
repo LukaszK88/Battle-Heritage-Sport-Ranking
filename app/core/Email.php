@@ -7,16 +7,18 @@
  */
 namespace Battleheritage\core;
 
+
+use PHPMailer as PHPMailer;
+
+
 class Email{
 
-   public static function sendEmail($to,$subject,$body)
+    public static function sendEmail($to,$subject,$body)
    {
-       if (!file_exists('../app/phpmailer/PHPMailerAutoload.php')) {
-           Message::setMessage('cannot load mail autoload','error');
-       } else {
-           require_once '../app/phpmailer/PHPMailerAutoload.php';
+
 
            $mail = new PHPMailer;
+
 
 //$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
@@ -24,7 +26,7 @@ class Email{
            $mail->Host = 'smtp.mail.yahoo.com';  // Specify main and backup SMTP servers
            $mail->SMTPAuth = true;                               // Enable SMTP authentication
            $mail->Username = 'lukaskowalpl@yahoo.co.uk';                 // SMTP username
-           $mail->Password = 'zawiszaczarny55555';                           // SMTP password
+           $mail->Password = getenv('EMAIL_PASS');                           // SMTP password
            $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
            $mail->Port = 465;                                    // TCP port to connect to
 
@@ -42,8 +44,13 @@ class Email{
            $mail->Subject = $subject;
            $mail->Body = $body;
            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-           $mail->send();
-       }
+           
+        if($mail->send()){
+            echo 'sent';
+        }else{
+            echo 'not sent';
+            //echo $mail->ErrorInfo;
+        }
    }
 
 }

@@ -26,7 +26,9 @@ use Battleheritage\core\Url ;
                                         <th width="8%">Loss</th>
                                         <th width="8%">KO</th>
                                         <th width="5%">Points</th>
+                                        <?php if($data['user']->isLoggedIn() and $data['user']->hasPermission('admin')): ?>
                                         <th width="5%">Update</th>
+                                        <?php endif; ?>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -40,7 +42,9 @@ use Battleheritage\core\Url ;
                                         <td><?php echo $profight->loss ?></td>
                                         <td><?php echo $profight->ko ?></td>
                                         <td><?php echo $profight->points ?></td>
+                                        <?php if($data['user']->isLoggedIn() and $data['user']->hasPermission('admin')): ?>
                                         <td><a href="<?php echo Url::path()?>/profight/addRecord/<?php echo $profight->user_id ?>" class="btn btn-success btn-sm">update</a></td>
+                                            <?php endif; ?>
                                     </tr>
                                     <?php endforeach; ?>
                                     </tbody>

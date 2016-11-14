@@ -28,7 +28,9 @@ use Battleheritage\core\Url ;
                                         <th width="8%">Suicides</th>
                                         <th width="8%">Ratio</th>
                                         <th width="5%">Points</th>
+                                        <?php if($data['user']->isLoggedIn() and $data['user']->hasPermission('admin')): ?>
                                         <th width="5%">Update</th>
+                                        <?php endif; ?>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -44,9 +46,10 @@ use Battleheritage\core\Url ;
                                         <td><?php echo $bohurt->suicide ?></td>
                                         <td><?php echo number_format(abs(((($bohurt->down + $bohurt->suicide)/$bohurt->fights) * 100)-100), 0, ',', ' ') ?> %</td>
                                         <td><?php echo $bohurt->points ?></td>
+                                        <?php if($data['user']->isLoggedIn() and $data['user']->hasPermission('admin')): ?>
                                         <td><a href="<?php echo Url::path()?>/bohurt/addRecord/<?php echo $bohurt->user_id ?>" class="btn btn-success btn-sm">update</a></td>
                                     </tr>
-                                    <?php endforeach; ?>
+                                    <?php endif; endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
