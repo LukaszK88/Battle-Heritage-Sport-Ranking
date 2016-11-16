@@ -25,10 +25,12 @@ use Battleheritage\Validation\InputForms\RegisterUser;
 use Battleheritage\Validation\InputForms\LoginUser;
 use Battleheritage\Validation\InputForms\UpdatePassword;
 use Battleheritage\Validation\InputForms\NewPassword;
+use Battleheritage\Validation\InputForms\AddAchievement;
 
 use Illuminate\Support\Facades\DB;
 use Battleheritage\models\Bohurts ;
 use Battleheritage\models\Users ;
+use Battleheritage\models\Achievements ;
 
 
 class Home extends Controller{
@@ -36,6 +38,7 @@ class Home extends Controller{
     protected   $user,
                 $bohurt,
                 $points,
+                $achievements,
                 $validator;
                
 
@@ -43,6 +46,7 @@ class Home extends Controller{
         $this->user = new Users();
         $this->bohurt = new Bohurts();
         $this->validator = new Validator();
+        $this->achievements = new Achievements();
 
 
         
@@ -66,9 +70,13 @@ class Home extends Controller{
         }
 
         $stats = Users::find($userId);
+
+        $achievements = $this->achievements->where('user_id',$userId)->get();
+
+       // print_r($achievements);
      
 
-        $this->view('home/profile',['user'=>$user,'stats'=>$stats]);
+        $this->view('home/profile',['user'=>$user,'stats'=>$stats,'achievements'=>$achievements]);
 
     }
 
@@ -186,6 +194,12 @@ class Home extends Controller{
             }
         }else{
             if (Input::exists()) {
+                    $validation = $this->validator->validate($_POST, NewPassword::rules());
+
+                    if ($validation->fails()) {
+
+                        Redirect::to(Url::path() . '/home/settings');
+                    }
 
                 if(Input::get('new_password') != Input::get('new_password_again')){
                     Message::setMessage('Passwords do not match', 'error');
@@ -373,8 +387,44 @@ class Home extends Controller{
 
         Redirect::to(Url::path() . '/home/index');
 
-        
+
         $this->view('home/delete');
+
+    }
+
+    public function addAchievement($id = ''){
+
+        if(!empty($id)){
+            $user = $this->user->selectUser($id);
+        }else{
+            $user='';
+        }
+
+
+        if (Input::exists()) {
+            $validation = $this->validator->validate($_POST, AddAchievement::rules());
+
+            if ($validation->fails()) {
+
+                Redirect::to(Url::path() . '/home/addAchievement/'.$id.'');
+            }
+
+            Achievements::firstOrCreate([
+                'user_id' => $user->id,
+                'location' => Input::get('location'),
+                'competitionName' => Input::get('competitionName'),
+                'place' => Input::get('place'),
+                'date'=> Input::get('date')
+            ]);
+
+            Message::setMessage('Achievement added','success');
+
+            Redirect::to(Url::path() . '/home/addAchievement/'.$id.'');
+
+
+        }
+
+        $this->view('home/addAchievement');
 
     }
     

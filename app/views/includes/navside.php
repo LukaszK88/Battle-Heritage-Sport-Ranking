@@ -12,7 +12,7 @@ use Battleheritage\core\Url ;
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
             <li>
-                <a href="<?php echo Url::path()?>/index"><i class="fa fa-dashboard fa-fw"></i> Fighters Overall</a>
+                <a href="<?php echo Url::path()?>/index"><i class="fa fa-trophy fa-fw"></i> Fighters Overall</a>
             </li>
             <li>
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Bohurt<span class="fa arrow"></span></a>
@@ -20,18 +20,18 @@ use Battleheritage\core\Url ;
                     <li>
                         <a href="<?php echo Url::path()?>/bohurt/competitions">Competitions</a>
                     </li>
-                    <li>
-                        <a href="<?php echo Url::path()?>/bohurt/training">Training</a>
+                    <li class="disabled">
+                        <a  href="<?php echo Url::path()?>/bohurt/training">Training</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="<?php echo Url::path()?>/profight"><i class="fa fa-table fa-fw"></i> Profights</a>
+                <a href="<?php echo Url::path()?>/profight"><i class="fa fa-bar-chart-o fa-fw"></i> Profights</a>
             </li>
 
             <li>
-                <a href="#"><i class="fa fa-sitemap fa-fw"></i> 1v1 IMCF<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 1v1 IMCF<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="#">Competitions<span class="fa arrow"></span></a>
@@ -49,7 +49,7 @@ use Battleheritage\core\Url ;
                         <!-- /.nav-third-level -->
 
                     </li>
-                    <li>
+                    <li class="disabled" >
                         <a class="disabled" href="#">Training<span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li>
@@ -75,7 +75,7 @@ use Battleheritage\core\Url ;
                     <li>
                         <a href="<?php echo Url::path()?>/triathlon">Competitions</a>
                     </li>
-                    <li>
+                    <li class="disabled">
                         <a href="#">Training</a>
                     </li>
                 </ul>

@@ -32,10 +32,14 @@ use Battleheritage\core\Input;
                         </div>
                         <div class="form-group <?php if(Validator::validationErrorExists('rank')):  ?> has-error <?php endif; ?>">
                             <label for="rank">Rank</label>
-                            <input name="rank" class="form-control" value="<?php echo !empty($data['user']->rank) ? $data['user']->rank : Input::get('rank');?>">
-
+                            <select name="rank" class="form-control" >
+                                <option >Recruit</option>
+                                <option >Fighter</option>
+                                <option >Veteran</option>
+                                <option >Elite</option>
+                            </select>
                             <span class="help-block">
-                                    <?php Validator::validationError('rank') ?>
+                            <?php Validator::validationError('rank') ?>
                                 </span>
 
                         </div>

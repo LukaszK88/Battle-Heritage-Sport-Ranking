@@ -194,4 +194,9 @@ class Users extends Model{
         return $this->hasOne('Battleheritage\models\Triathlons','user_id');
     }
 
+    public function achievements(){
+
+        return $this->hasMany('Battleheritage\models\Achievements','user_id');
+    }
+
 }

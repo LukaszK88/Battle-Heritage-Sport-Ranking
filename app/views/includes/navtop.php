@@ -27,7 +27,7 @@ use Battleheritage\core\Session ;
             <?php if(!Session::exists('user')): ?>
             <li><a href="<?php echo Url::path()?>/home/register"><i class="fa fa-user fa-fw"></i> Register</a>
             </li>
-            <li><a href="<?php echo Url::path()?>/home/login"><i class="fa fa-user fa-fw"></i> Log in</a>
+            <li><a href="<?php echo Url::path()?>/home/login"><i class="fa fa-sign-in fa-fw"></i> Log in</a>
             </li>
             <?php else: ?>
             <!-- /.dropdown -->
