@@ -35,8 +35,8 @@ use Battleheritage\core\Input;
                             <label for="place">Place</label>
                             <select name="place" class="form-control" >
                                 <option value="<font color='#ffd700'><span class='fa fa-trophy fa-2x '></span></font>" >1st</option>
-                                <option value="" >2nd</option>
-                                <option value="">3rd</option>
+                                <option value="<font color='silver'><span class='fa fa-trophy fa-2x '></span></font>" >2nd</option>
+                                <option value="<font color='#8b4513'><span class='fa fa-trophy fa-2x '></span></font>">3rd</option>
                             </select>
                             <span class="help-block">
                             <?php Validator::validationError('place') ?>

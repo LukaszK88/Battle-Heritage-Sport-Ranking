@@ -14,7 +14,7 @@ use Battleheritage\core\Session ;
         <div class="container-fluid">
             <div class="row">
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
 
                         <?php if (empty($data['user']->image)) : ?>
                             <?php if (Session::exists('user') and ($data['user']->id == Session::get('user'))): ?>
@@ -29,21 +29,7 @@ use Battleheritage\core\Session ;
                                 <img class="img-responsive" src="<?php echo $data['user']->image ?>" alt="">
                                 <?php endif;?>
                         <?php endif;?>
-                        <div class="well">
-                            <h2>Achievements</h2>
-                                <?php if (Session::exists('user') and ($data['user']->id == Session::get('user'))): ?>
-                                    <a href="<?php echo Url::path()?>/home/addAchievement/<?php echo $data['user']->id?>" class="btn btn-success btn-sm">Add achievement</a>
-                                <?php endif; ?>
 
-                            <hr>
-                            <?php foreach ($data['achievements'] as $achievement) : ?>
-                            <?php echo $achievement->place.' ' .$achievement->location ?>
-                            <?php endforeach; ?>
-                            
-                            <font color="silver"><span class="fa fa-trophy fa-2x "></span></font>
-                            <font color="#8b4513"><span class="fa fa-trophy fa-2x "></span></font>
-
-                        </div>
 
                     </div>
 
@@ -96,18 +82,38 @@ use Battleheritage\core\Session ;
 
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <?php if (empty($data['user']->coa)) : ?>
                         <?php if (Session::exists('user') and ($data['user']->id == Session::get('user'))): ?>
                         <a href="<?php echo Url::path()?>/home/photo/<?php echo $data['user']->id?>/coaPhoto" class="btn btn-success btn-sm">Upload Coat of arms</a>
                             <?php endif; ?>
                     <?php else :?>
                         <?php if (Session::exists('user') and ($data['user']->id == Session::get('user'))): ?>
-                        <a href="<?php echo Url::path()?>/home/photo/<?php echo $data['user']->id?>/coaPhoto"> <img class="img-responsive" src="<?php echo $data['user']->coa ?>" alt=""></a>
+                        <a href="<?php echo Url::path()?>/home/photo/<?php echo $data['user']->id?>/coaPhoto"> <img class="img-responsive " src="<?php echo $data['user']->coa ?>" alt=""></a>
                             <?php else:?>
                             <img class="img-responsive" src="<?php echo $data['user']->coa ?>" alt="">
                             <?php endif; ?>
                     <?php endif;?>
+
+                    <div class="well">
+
+                        <h2>Achievements</h2>
+
+                        <?php if (Session::exists('user') and ($data['user']->id == Session::get('user'))): ?>
+                            <a href="<?php echo Url::path()?>/home/addAchievement/<?php echo $data['user']->id?>" class="btn btn-success btn-sm">Add achievement</a>
+                        <?php endif; ?>
+
+                        <hr>
+
+                        <?php foreach ($data['achievements'] as $achievement) : ?>
+                            
+                            <?php echo $achievement->place.' '.$achievement->date.' '.$achievement->competitionName.' '.$achievement->location ?><br>
+                        <?php endforeach; ?>
+
+
+
+
+                    </div>
                 </div>
 
             </div>

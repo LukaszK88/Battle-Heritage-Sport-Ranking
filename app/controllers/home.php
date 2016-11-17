@@ -71,9 +71,9 @@ class Home extends Controller{
 
         $stats = Users::find($userId);
 
-        $achievements = $this->achievements->where('user_id',$userId)->get();
+        $achievements = $this->achievements->where('user_id',$userId)->orderBy('date','DESC')->get();
 
-       // print_r($achievements);
+       
      
 
         $this->view('home/profile',['user'=>$user,'stats'=>$stats,'achievements'=>$achievements]);
@@ -419,7 +419,7 @@ class Home extends Controller{
 
             Message::setMessage('Achievement added','success');
 
-            Redirect::to(Url::path() . '/home/addAchievement/'.$id.'');
+            Redirect::to(Url::path() . '/home/profile/'.$id.'');
 
 
         }
